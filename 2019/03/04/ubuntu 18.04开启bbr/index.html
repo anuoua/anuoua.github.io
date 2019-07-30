@@ -103,24 +103,24 @@
   <meta name="keywords" content="Hexo, NexT">
 
 
-<meta name="description" content="是遗忘逼我的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://anuoua.github.io/categories/index.html">
+<meta name="description" content="说明：Ubuntu 18.04前几天发布了，改变挺大的，内核也直接升到了正式版4.15，而BBR内核要求为4.9，也就是说满足了，所以我们不需要换内核就可以很快的开启BBR，这里简单说下方法。 方法1、修改系统变量 echo &quot;net.core.default_qdisc=fq&quot; &amp;gt;&amp;gt; /etc/sysctl.confecho &quot;net.ipv4.tcp_congestion_cont">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu 18.04开启bbr">
+<meta property="og:url" content="https://anuoua.github.io/2019/03/04/ubuntu 18.04开启bbr/index.html">
 <meta property="og:site_name" content="anuoua的">
-<meta property="og:description" content="是遗忘逼我的">
+<meta property="og:description" content="说明：Ubuntu 18.04前几天发布了，改变挺大的，内核也直接升到了正式版4.15，而BBR内核要求为4.9，也就是说满足了，所以我们不需要换内核就可以很快的开启BBR，这里简单说下方法。 方法1、修改系统变量 echo &quot;net.core.default_qdisc=fq&quot; &amp;gt;&amp;gt; /etc/sysctl.confecho &quot;net.ipv4.tcp_congestion_cont">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-30T14:21:00.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="是遗忘逼我的">
+<meta name="twitter:title" content="ubuntu 18.04开启bbr">
+<meta name="twitter:description" content="说明：Ubuntu 18.04前几天发布了，改变挺大的，内核也直接升到了正式版4.15，而BBR内核要求为4.9，也就是说满足了，所以我们不需要换内核就可以很快的开启BBR，这里简单说下方法。 方法1、修改系统变量 echo &quot;net.core.default_qdisc=fq&quot; &amp;gt;&amp;gt; /etc/sysctl.confecho &quot;net.ipv4.tcp_congestion_cont">
 
 
 
 
 
 
-  <link rel="canonical" href="https://anuoua.github.io/categories/">
+  <link rel="canonical" href="https://anuoua.github.io/2019/03/04/ubuntu 18.04开启bbr/">
 
 
 
@@ -129,7 +129,7 @@
     sidebar: "",
   };
 </script>
-  <title>分类 | anuoua的</title>
+  <title>ubuntu 18.04开启bbr | anuoua的</title>
   
 
 
@@ -297,61 +297,184 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/ubuntu 18.04开启bbr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar-my.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">分类</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/基础/">基础</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">ubuntu 18.04开启bbr</h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T14:09:27+08:00">2019-03-04</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/04/ubuntu 18.04开启bbr/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/04/ubuntu 18.04开启bbr/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><strong>说明：</strong><code>Ubuntu 18.04</code>前几天发布了，改变挺大的，内核也直接升到了正式版<code>4.15</code>，而<code>BBR</code>内核要求为<code>4.9</code>，也就是说满足了，所以我们不需要换内核就可以很快的开启<code>BBR</code>，这里简单说下方法。<br><a name="ea340b9d"></a></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>1、修改系统变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"net.core.default_qdisc=fq"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.tcp_congestion_control=bbr"</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p>2、保存生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<p>3、查看内核是否已开启BBR</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
+<p>显示以下即已开启：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sysctl net.ipv4.tcp_available_congestion_control</span></span><br><span class="line">net.ipv4.tcp_available_congestion_control = bbr cubic reno</span><br></pre></td></tr></table></figure>
+<p>4、查看BBR是否启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<p>显示以下即启动成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># lsmod | grep bbr</span></span><br><span class="line">tcp_bbr                20480  14</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.moerats.com/archives/612/" target="_blank" rel="noopener">原文链接</a></p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/04/Xshell调整tmux大小无效问题/" rel="next" title="Xshell调整tmux大小无效问题">
+                <i class="fa fa-chevron-left"></i> Xshell调整tmux大小无效问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -374,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -464,6 +596,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -611,6 +759,23 @@
     <script id="dsq-count-scr" src="https://anuoua-blog.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://anuoua.github.io/2019/03/04/ubuntu 18.04开启bbr/';
+        this.page.identifier = '2019/03/04/ubuntu 18.04开启bbr/';
+        this.page.title = 'ubuntu 18.04开启bbr';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://anuoua-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 

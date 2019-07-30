@@ -100,27 +100,30 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="js,">
 
 
-<meta name="description" content="是遗忘逼我的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://anuoua.github.io/categories/index.html">
+<meta name="description" content="以下这张图，基本解释了所有的原型关系 核心要素是： var Foo = function ()&amp;#123;&amp;#125;var foo = new Foo()foo.__proto__ == foo.constructor.prototype == Foo.prototype// .__proto__ 可以简单理解成 .construstor.prototype 的简写 但本质上__proto__">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于原型链">
+<meta property="og:url" content="https://anuoua.github.io/2018/03/14/关于原型链/index.html">
 <meta property="og:site_name" content="anuoua的">
-<meta property="og:description" content="是遗忘逼我的">
+<meta property="og:description" content="以下这张图，基本解释了所有的原型关系 核心要素是： var Foo = function ()&amp;#123;&amp;#125;var foo = new Foo()foo.__proto__ == foo.constructor.prototype == Foo.prototype// .__proto__ 可以简单理解成 .construstor.prototype 的简写 但本质上__proto__">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2019/png/280778/1551716465866-8a074836-eba5-48e8-9289-f961b243f2b1.png#align=left&display=inline&height=586&name=image.png&originHeight=586&originWidth=520&size=173051&status=done&width=520">
 <meta property="og:updated_time" content="2019-07-30T14:21:00.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="是遗忘逼我的">
+<meta name="twitter:title" content="关于原型链">
+<meta name="twitter:description" content="以下这张图，基本解释了所有的原型关系 核心要素是： var Foo = function ()&amp;#123;&amp;#125;var foo = new Foo()foo.__proto__ == foo.constructor.prototype == Foo.prototype// .__proto__ 可以简单理解成 .construstor.prototype 的简写 但本质上__proto__">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2019/png/280778/1551716465866-8a074836-eba5-48e8-9289-f961b243f2b1.png#align=left&display=inline&height=586&name=image.png&originHeight=586&originWidth=520&size=173051&status=done&width=520">
 
 
 
 
 
 
-  <link rel="canonical" href="https://anuoua.github.io/categories/">
+  <link rel="canonical" href="https://anuoua.github.io/2018/03/14/关于原型链/">
 
 
 
@@ -129,7 +132,7 @@
     sidebar: "",
   };
 </script>
-  <title>分类 | anuoua的</title>
+  <title>关于原型链 | anuoua的</title>
   
 
 
@@ -297,61 +300,215 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2018/03/14/关于原型链/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar-my.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h2 class="post-title" itemprop="name headline">分类</h2>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                
-                
-                  
-                    
-                  
-                
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/基础/">基础</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">关于原型链</h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T15:29:00+08:00">2018-03-14</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/14/关于原型链/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/14/关于原型链/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><a name="9f4eb5bf"></a></p>
+<h2 id="以下这张图，基本解释了所有的原型关系"><a href="#以下这张图，基本解释了所有的原型关系" class="headerlink" title="以下这张图，基本解释了所有的原型关系"></a>以下这张图，基本解释了所有的原型关系</h2><p><img src="https://cdn.nlark.com/yuque/0/2019/png/280778/1551716465866-8a074836-eba5-48e8-9289-f961b243f2b1.png#align=left&amp;display=inline&amp;height=586&amp;name=image.png&amp;originHeight=586&amp;originWidth=520&amp;size=173051&amp;status=done&amp;width=520" alt="image.png"></p>
+<p>核心要素是：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo()</span><br><span class="line">foo.__proto__ == foo.constructor.prototype == Foo.prototype</span><br><span class="line"></span><br><span class="line"><span class="comment">// .__proto__ 可以简单理解成 .construstor.prototype 的简写</span></span><br></pre></td></tr></table></figure>
+<p>但本质上<code>__proto__</code>不等于<code>.constructor.prototype</code>，当我把对象的<code>constructor</code>置为<code>null</code>，<code>.__proto__</code>还是能够读到，但是<code>.constructor.prototype</code>直接报错了。这里这么说只是为了方便理解<br><br>说到底<code>.__proto__</code>就是这个对象的构造函数的原型。</p>
+<p>理解了这个就能理解上面图示的所有的关系了。</p>
+<hr>
+<p><a name="b13987ed"></a></p>
+<h2 id="以下有助于理解几个基类之间的关系"><a href="#以下有助于理解几个基类之间的关系" class="headerlink" title="以下有助于理解几个基类之间的关系"></a>以下有助于理解几个基类之间的关系</h2><p><code>instanceof</code>操作符</p>
+<p>instanceof的左值一般是一个对象，右值一般是一个构造函数，用来判断左值是否是右值的实例。它的内部实现原理是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//设 L instanceof R </span><br><span class="line">//通过判断</span><br><span class="line"> L.__proto__.__proto__ ..... === R.prototype ？</span><br><span class="line"> //最终返回true or false</span><br></pre></td></tr></table></figure>
+<p>也就是沿着L的<code>__proto__</code>一直寻找到原型链末端，直到等于<code>R.prototype</code>为止。知道了这个也就知道为什么以下这些奇怪的表达式为什么会得到相应的值了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Function instanceof Object // true </span><br><span class="line"> Object instanceof Function // true </span><br><span class="line"> Function instanceof Function //true</span><br><span class="line"> Object instanceof Object // true</span><br><span class="line"> Number instanceof Number //false</span><br></pre></td></tr></table></figure>
+<p><a name="30bacd56"></a></p>
+<h2 id="总结了下"><a href="#总结了下" class="headerlink" title="总结了下"></a>总结了下</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.constructor === <span class="function"><span class="keyword">function</span> <span class="title">Function</span> (<span class="params"></span>)</span>&#123;&#125; <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.constructor === <span class="function"><span class="keyword">function</span> <span class="title">Function</span> (<span class="params"></span>)</span>&#123;&#125; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 两个需要特殊注意一下， 记住这个基本上能把所有的东西都推理出来了。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Function</span>.prototype === functoin ()&#123; native code &#125; <span class="comment">// true </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Function</span>.prototype.constructor === Funtion <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Function</span>.prototype.constructor.prototype === <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123; native code &#125; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...无限循环</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span> <span class="comment">// 原型链的终点</span></span><br></pre></td></tr></table></figure>
+<p><a name="68d14dba"></a></p>
+<h2 id="关于-proto"><a href="#关于-proto" class="headerlink" title="关于__proto__"></a>关于<code>__proto__</code></h2><p><code>__proto__</code> 是内部的<strong>构造函数原型对象</strong>， 一般情况下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">obj.__proto__ === obj.constructor.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>但是<code>__proto__</code>不会因为你在对象的prototype中更改constructor而改变。它总是指向对象被创建时的那个<code>constructor</code> function ， 举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line">Dog.prototype.constructor = Dog; <span class="comment">// 在继承的时候，这里改变了prototype.constructor，但是不影响__proto__的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 完成继承</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Dog() <span class="keyword">instanceof</span> Animal <span class="comment">// true</span></span><br><span class="line"><span class="keyword">new</span> Dog() <span class="keyword">instanceof</span> Dog <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据以上 instanceof 的原理</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Dog().__proto__.__proto__ === Animal.prototype <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在这里__proto__和constructor.prototype的结果就不同, 一定要搞清楚</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Dog().__proto__.constructor.prototype ===  Animal.prototype <span class="comment">// false</span></span><br><span class="line"><span class="keyword">new</span> Dog().__proto__.constructor.prototype === Dog.prototype <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>部分内容摘自<br><br>作者：苏墨橘<br><br>链接：<a href="https://www.zhihu.com/question/34183746/answer/59043879" target="_blank" rel="noopener">https://www.zhihu.com/question/34183746/answer/59043879</a></p>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/15/猜数字游戏算法/" rel="prev" title="猜数字游戏算法">
+                猜数字游戏算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -374,8 +531,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -464,6 +630,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#以下这张图，基本解释了所有的原型关系"><span class="nav-number">1.</span> <span class="nav-text">以下这张图，基本解释了所有的原型关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以下有助于理解几个基类之间的关系"><span class="nav-number">2.</span> <span class="nav-text">以下有助于理解几个基类之间的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结了下"><span class="nav-number">3.</span> <span class="nav-text">总结了下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-proto"><span class="nav-number">4.</span> <span class="nav-text">关于__proto__</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -611,6 +793,23 @@
     <script id="dsq-count-scr" src="https://anuoua-blog.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://anuoua.github.io/2018/03/14/关于原型链/';
+        this.page.identifier = '2018/03/14/关于原型链/';
+        this.page.title = '关于原型链';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://anuoua-blog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 
