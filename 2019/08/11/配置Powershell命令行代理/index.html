@@ -57,14 +57,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="anuoua的">
-<meta property="og:url" content="https://anuoua.github.io/tags/js/index.html">
+  <meta name="description" content="在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：  应用代理环境变量 取消代理环境变量  直接在powershell中调用这两命令就方便很多了。 Powershell基本概念Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置Powershell命令行代理">
+<meta property="og:url" content="https://anuoua.github.io/2019/08/11/配置Powershell命令行代理/index.html">
 <meta property="og:site_name" content="anuoua的">
+<meta property="og:description" content="在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：  应用代理环境变量 取消代理环境变量  直接在powershell中调用这两命令就方便很多了。 Powershell基本概念Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-11T07:09:43.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="anuoua的">
-  <link rel="canonical" href="https://anuoua.github.io/tags/js/">
+<meta name="twitter:title" content="配置Powershell命令行代理">
+<meta name="twitter:description" content="在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：  应用代理环境变量 取消代理环境变量  直接在powershell中调用这两命令就方便很多了。 Powershell基本概念Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都">
+  <link rel="canonical" href="https://anuoua.github.io/2019/08/11/配置Powershell命令行代理/">
 
 
 <script id="page.configurations">
@@ -73,7 +77,7 @@
   };
 </script>
 
-  <title>标签: js | anuoua的</title>
+  <title>配置Powershell命令行代理 | anuoua的</title>
   
 
 
@@ -112,7 +116,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -156,7 +160,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
       
     
 
@@ -205,27 +209,6 @@
     </ul>
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
     <div class="site-search">
       
   <div class="popup search-popup local-search-popup">
@@ -261,110 +244,121 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/08/11/配置Powershell命令行代理/">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>js<small>标签</small>
-        </h1>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">配置Powershell命令行代理
+
+              
+            
+          </h1>
         
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2018/03/22/javascript变态题/" itemprop="url">
+              
+                
+              
+
+              <time title="创建时间：2019-08-11 15:01:04 / 修改时间：07:09:43" itemprop="dateCreated datePublished" datetime="2019-08-11T15:01:04+00:00">2019-08-11</time>
+            </span>
+          
             
-              <span itemprop="name">javascript变态题</span>
+
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-22T02:07:21+00:00"
-              content="2018-03-22">
-          03-22
-        </time>
-      </div>
+          <br>
 
-    </header>
-  </article>
+        </div>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：</p>
+<ul>
+<li>应用代理环境变量</li>
+<li>取消代理环境变量</li>
+</ul>
+<p>直接在powershell中调用这两命令就方便很多了。</p>
+<h2 id="Powershell基本概念"><a href="#Powershell基本概念" class="headerlink" title="Powershell基本概念"></a>Powershell基本概念</h2><p>Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都是操作Env这个对象。</p>
+<p>操作对象的方式（以环境变量为例）：</p>
+<ul>
+<li>添加/修改一个键值对：<code>Set-Item Env:http_proxy = &quot;http://127.0.0.1:1080&quot;</code></li>
+<li>移除一个键值对：<code>Remove-Item Env:http_proxy</code></li>
+</ul>
+<p>知道这个就能配置代理了。</p>
+<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><p>我们需要将这两个命令写入powershell启动脚本（类似linux的<code>.bashrc</code>），windows启动脚本在哪儿？</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> set_proxy_variable &#123;</span><br><span class="line">	<span class="built_in">Set-Item</span> Env:http_proxy <span class="string">"http://127.0.0.1:1080"</span>  <span class="comment"># 代理地址</span></span><br><span class="line">	<span class="built_in">Set-Item</span> Env:https_proxy <span class="string">"http://127.0.0.1:1080"</span> <span class="comment"># 代理地址</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> unset_proxy_variable &#123;</span><br><span class="line">    <span class="built_in">Remove-Item</span> Env:http_proxy</span><br><span class="line">    <span class="built_in">Remove-Item</span> Env:https_proxy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">New-Alias</span> -Name spp -Value set_proxy_variable</span><br><span class="line"><span class="built_in">New-Alias</span> -Name upp -Value unset_proxy_variable</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li><code>spp</code> 启用代理</li>
+<li><code>upp</code> 取消代理</li>
+</ul>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2018/03/16/猜数字游戏算法/" itemprop="url">
-            
-              <span itemprop="name">猜数字游戏算法</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-16T07:04:24+00:00"
-              content="2018-03-16">
-          03-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2018/03/14/关于原型链/" itemprop="url">
-            
-              <span itemprop="name">关于原型链</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-14T15:29:00+00:00"
-              content="2018-03-14">
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
     </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/08/11/Powershell启动脚本/" rel="next" title="Powershell启动脚本">
+                <i class="fa fa-chevron-left"></i> Powershell启动脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
           
+
 
         </div>
           
@@ -379,8 +373,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -463,6 +466,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Powershell基本概念"><span class="nav-number">1.</span> <span class="nav-text">Powershell基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写脚本"><span class="nav-number">2.</span> <span class="nav-text">编写脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -515,6 +535,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 
   <script src="/js/next-boot.js?v=7.3.0"></script>
 

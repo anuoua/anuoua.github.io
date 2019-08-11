@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>配置Powershell命令行代理</title>
+      <link href="/2019/08/11/%E9%85%8D%E7%BD%AEPowershell%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/"/>
+      <url>/2019/08/11/%E9%85%8D%E7%BD%AEPowershell%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<p>在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：</p><ul><li>应用代理环境变量</li><li>取消代理环境变量</li></ul><p>直接在powershell中调用这两命令就方便很多了。</p><h2 id="Powershell基本概念"><a href="#Powershell基本概念" class="headerlink" title="Powershell基本概念"></a>Powershell基本概念</h2><p>Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都是操作Env这个对象。</p><p>操作对象的方式（以环境变量为例）：</p><ul><li>添加/修改一个键值对：<code>Set-Item Env:http_proxy = &quot;http://127.0.0.1:1080&quot;</code></li><li>移除一个键值对：<code>Remove-Item Env:http_proxy</code></li></ul><p>知道这个就能配置代理了。</p><h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><p>我们需要将这两个命令写入powershell启动脚本（类似linux的<code>.bashrc</code>），windows启动脚本在哪儿？</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> set_proxy_variable &#123;</span><br><span class="line"><span class="built_in">Set-Item</span> Env:http_proxy <span class="string">"http://127.0.0.1:1080"</span>  <span class="comment"># 代理地址</span></span><br><span class="line"><span class="built_in">Set-Item</span> Env:https_proxy <span class="string">"http://127.0.0.1:1080"</span> <span class="comment"># 代理地址</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> unset_proxy_variable &#123;</span><br><span class="line">    <span class="built_in">Remove-Item</span> Env:http_proxy</span><br><span class="line">    <span class="built_in">Remove-Item</span> Env:https_proxy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">New-Alias</span> -Name spp -Value set_proxy_variable</span><br><span class="line"><span class="built_in">New-Alias</span> -Name upp -Value unset_proxy_variable</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul><li><code>spp</code> 启用代理</li><li><code>upp</code> 取消代理</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Powershell启动脚本</title>
+      <link href="/2019/08/11/Powershell%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/"/>
+      <url>/2019/08/11/Powershell%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/</url>
+      
+        <content type="html"><![CDATA[<p>Linux中bash有一个启动的默认配置文件：<code>.bashrc</code>或者<code>.bash_profile</code>，自定义命令以及预配置可以写在那里，但是windows的配置文件在哪里呢？</p><p>按照微软官网的说法是按照以下的对应关系，但是实际上是不对的。</p><table><thead><tr><th align="left">Description</th><th align="left">Path</th></tr></thead><tbody><tr><td align="left">All Users, All Hosts</td><td align="left"><code>$PsHome\Profile.ps1</code></td></tr><tr><td align="left">All Users, Current Host</td><td align="left"><code>$PsHome\Microsoft.PowerShell_profile.ps1</code></td></tr><tr><td align="left">Current User, All Hosts</td><td align="left"><code>$Home\[My ]Documents\PowerShell\Profile.ps1</code></td></tr><tr><td align="left">Current user, Current Host</td><td align="left"><code>$Home\[My ]Documents\PowerShell\ Microsoft.PowerShell_profile.ps1</code></td></tr></tbody></table><p>我们可以通过环境变量查看配置文件的路径</p><table><thead><tr><th align="left">Description</th><th align="left">Name</th></tr></thead><tbody><tr><td align="left">All Users, All Hosts</td><td align="left"><code>$PROFILE.AllUsersAllHosts</code></td></tr><tr><td align="left">All Users, Current Host</td><td align="left"><code>$PROFILE.AllUsersCurrentHost</code></td></tr><tr><td align="left">Current User, All Hosts</td><td align="left"><code>$PROFILE.CurrentUserAllHosts</code></td></tr><tr><td align="left">Current User, Current Host</td><td align="left"><code>$PROFILE</code> or <code>$PROFILE.CurrentUserCurrentHost</code></td></tr></tbody></table><p>windows 10 1903版本上的配置文件的实际路径</p><table><thead><tr><th align="left">Description</th><th align="left">Path</th></tr></thead><tbody><tr><td align="left">All Users, All Hosts</td><td align="left"><code>$PsHome\profile.ps1</code></td></tr><tr><td align="left">All Users, Current Host</td><td align="left"><code>$PsHome\Microsoft.PowerShell_profile.ps1</code></td></tr><tr><td align="left">Current User, All Hosts</td><td align="left"><code>$Home\Documents\WindowsPowerShell\profile.ps1</code></td></tr><tr><td align="left">Current user, Current Host</td><td align="left"><code>$Home\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</code></td></tr></tbody></table><p>然后就是按照路径创建配置文件，终于可以写点自定义命令了。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ubuntu 18.04开启bbr</title>
       <link href="/2019/03/04/ubuntu%2018.04%E5%BC%80%E5%90%AFbbr/"/>
       <url>/2019/03/04/ubuntu%2018.04%E5%BC%80%E5%90%AFbbr/</url>
