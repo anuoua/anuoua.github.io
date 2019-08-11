@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="NERD tree 配置使用F2快速展开或隐藏它打开vim时自动展开NERDTree 1autocmd vimenter * if !argc() | NERDTree | endif  如果窗口除了NERDTree没有其他文件时，自动关闭，可以减少多次按:q 1autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;amp;&amp;amp; exists(&quot;b:NERDTre">
+  <meta name="description" content="需求使用linux离不开ss，每次都需要手动输入命令开启，很麻烦，所以需要创建开机就启动的服务。 前提假设我们有一段需要开机启动的服务脚本/home/username/document/ss-local.sh如下 1ss-local -c /home/username/document/ssconfig.json   创建服务（两种方式） 1. 创建成系统服务然后在/etc/init.d/新建s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NERD tree 配置命令以及快捷键">
-<meta property="og:url" content="https://anuoua.github.io/2019/03/04/NERD tree 配置命令以及快捷键/index.html">
+<meta property="og:title" content="Linux创建开机启动服务">
+<meta property="og:url" content="https://anuoua.github.io/2019/03/04/Linux创建开机启动服务/index.html">
 <meta property="og:site_name" content="anuoua的">
-<meta property="og:description" content="NERD tree 配置使用F2快速展开或隐藏它打开vim时自动展开NERDTree 1autocmd vimenter * if !argc() | NERDTree | endif  如果窗口除了NERDTree没有其他文件时，自动关闭，可以减少多次按:q 1autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;amp;&amp;amp; exists(&quot;b:NERDTre">
+<meta property="og:description" content="需求使用linux离不开ss，每次都需要手动输入命令开启，很麻烦，所以需要创建开机就启动的服务。 前提假设我们有一段需要开机启动的服务脚本/home/username/document/ss-local.sh如下 1ss-local -c /home/username/document/ssconfig.json   创建服务（两种方式） 1. 创建成系统服务然后在/etc/init.d/新建s">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-08-11T02:33:40.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NERD tree 配置命令以及快捷键">
-<meta name="twitter:description" content="NERD tree 配置使用F2快速展开或隐藏它打开vim时自动展开NERDTree 1autocmd vimenter * if !argc() | NERDTree | endif  如果窗口除了NERDTree没有其他文件时，自动关闭，可以减少多次按:q 1autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;amp;&amp;amp; exists(&quot;b:NERDTre">
-  <link rel="canonical" href="https://anuoua.github.io/2019/03/04/NERD tree 配置命令以及快捷键/">
+<meta name="twitter:title" content="Linux创建开机启动服务">
+<meta name="twitter:description" content="需求使用linux离不开ss，每次都需要手动输入命令开启，很麻烦，所以需要创建开机就启动的服务。 前提假设我们有一段需要开机启动的服务脚本/home/username/document/ss-local.sh如下 1ss-local -c /home/username/document/ssconfig.json   创建服务（两种方式） 1. 创建成系统服务然后在/etc/init.d/新建s">
+  <link rel="canonical" href="https://anuoua.github.io/2019/03/04/Linux创建开机启动服务/">
 
 
 <script id="page.configurations">
@@ -77,7 +77,7 @@
   };
 </script>
 
-  <title>NERD tree 配置命令以及快捷键 | anuoua的</title>
+  <title>Linux创建开机启动服务 | anuoua的</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/NERD tree 配置命令以及快捷键/">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/Linux创建开机启动服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="anuoua">
@@ -266,7 +266,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">NERD tree 配置命令以及快捷键
+          <h1 class="post-title" itemprop="name headline">Linux创建开机启动服务
 
               
             
@@ -286,7 +286,7 @@
                 
               
 
-              <time title="创建时间：2019-03-04 13:49:39" itemprop="dateCreated datePublished" datetime="2019-03-04T13:49:39+00:00">2019-03-04</time>
+              <time title="创建时间：2019-03-04 04:45:11" itemprop="dateCreated datePublished" datetime="2019-03-04T04:45:11+00:00">2019-03-04</time>
             </span>
           
             
@@ -315,24 +315,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a name="57fc581c"></a></p>
-<h2 id="NERD-tree-配置"><a href="#NERD-tree-配置" class="headerlink" title="NERD tree 配置"></a>NERD tree 配置</h2><p>使用F2快速展开或隐藏它打开vim时自动展开NERDTree</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd vimenter * <span class="keyword">if</span> !argc() | NERDTree | endif</span><br></pre></td></tr></table></figure>
+        <p><a name="e6cefb85"></a></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>使用linux离不开ss，每次都需要手动输入命令开启，很麻烦，所以需要创建开机就启动的服务。<br><a name="a62d8a1a"></a></p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>假设我们有一段需要开机启动的服务脚本<code>/home/username/document/ss-local.sh</code>如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss-local -c /home/username/document/ssconfig.json</span><br></pre></td></tr></table></figure>
 
-<p>如果窗口除了NERDTree没有其他文件时，自动关闭，可以减少多次按:q</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd bufenter * <span class="keyword">if</span> (winnr(<span class="string">"$"</span>) == 1 &amp;&amp; exists(<span class="string">"b:NERDTreeType"</span>) &amp;&amp; b:NERDTreeType == <span class="string">"primary"</span>) | q | endif</span><br></pre></td></tr></table></figure>
+<p><a name="c010aa73"></a></p>
+<h2 id="创建服务（两种方式）"><a href="#创建服务（两种方式）" class="headerlink" title="创建服务（两种方式）"></a>创建服务（两种方式）</h2><p><a name="b3ffe560"></a></p>
+<h3 id="1-创建成系统服务"><a href="#1-创建成系统服务" class="headerlink" title="1. 创建成系统服务"></a>1. 创建成系统服务</h3><p>然后在<code>/etc/init.d/</code>新建<code>ss-local</code>文件，注意这个文件的写法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"><span class="meta">#</span>## BEGIN INIT INFO</span><br><span class="line"><span class="meta">#</span> Provides:          ss-local // 名字要和文件名一样</span><br><span class="line"><span class="meta">#</span> Required-Start:    $remote_fs</span><br><span class="line"><span class="meta">#</span> Required-Stop:     $remote_fs</span><br><span class="line"><span class="meta">#</span> Default-Start:    2 3 4 5 </span><br><span class="line"><span class="meta">#</span> Default-Stop:     0 1 6</span><br><span class="line"><span class="meta">#</span> Short-Description: local shadowsocks service</span><br><span class="line"><span class="meta">#</span>## END INIT INFO</span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin</span><br><span class="line"></span><br><span class="line">. /lib/lsb/init-functions</span><br><span class="line"></span><br><span class="line">NAME=ss-local</span><br><span class="line">DEAMON=/home/username/document/ss-local.sh  # 注意设置正确的脚本路径</span><br><span class="line"></span><br><span class="line">start_sslocal() &#123;</span><br><span class="line">    start-stop-daemon --start --background --name $NAME --exec $DEAMON</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stop_sslocal() &#123;</span><br><span class="line">    start-stop-daemon --stop --name $NAME</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case "$1" in  </span><br><span class="line">  start|"")</span><br><span class="line">        start_sslocal</span><br><span class="line">        ;;  </span><br><span class="line">  restart|reload|force-reload)</span><br><span class="line">        stop_sslocal</span><br><span class="line">        ;;  </span><br><span class="line">  stop)</span><br><span class="line">        exit 0 </span><br><span class="line">        ;;  </span><br><span class="line">  *)  </span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
 
-<p>使用F2快速展开或隐藏它</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map &lt;F2&gt; :NERDTreeToggle&lt;CR&gt;</span><br></pre></td></tr></table></figure>
+<p>将文件的权限置为755</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 ss-local</span><br></pre></td></tr></table></figure>
 
-<p><a name="ddf7d2a5"></a></p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:tabnew [++opt选项] ［＋cmd］ 文件      建立对指定文件新的tab</span><br><span class="line">:tabc   关闭当前的 tab</span><br><span class="line">:tabo   关闭所有其他的 tab</span><br><span class="line">:tabs   查看所有打开的 tab</span><br><span class="line">:tabp   前一个 tab</span><br><span class="line">:tabn   后一个 tab</span><br></pre></td></tr></table></figure>
+<p>将服务文件设置为开机启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-rc.d ss-local defaults</span><br></pre></td></tr></table></figure>
 
-<p><a name="f7d29966"></a></p>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">shift + a   侧边栏宽度放大，再按一下恢复</span><br><span class="line"></span><br><span class="line">ctrl + w + h    光标 focus 左侧树形目录</span><br><span class="line">ctrl + w + l    光标 focus 右侧文件显示窗口</span><br><span class="line">ctrl + w + w    光标自动在左右侧窗口切换 #！！！</span><br><span class="line">ctrl + w + r    移动当前窗口的布局位置</span><br><span class="line"></span><br><span class="line">o       在已有窗口中打开文件、目录或书签，并跳到该窗口</span><br><span class="line">go      在已有窗口 中打开文件、目录或书签，但不跳到该窗口</span><br><span class="line">t       在新 Tab 中打开选中文件/书签，并跳到新 Tab</span><br><span class="line">T       在新 Tab 中打开选中文件/书签，但不跳到新 Tab</span><br><span class="line">i       split 一个新窗口打开选中文件，并跳到该窗口</span><br><span class="line">gi      split 一个新窗口打开选中文件，但不跳到该窗口</span><br><span class="line">s       vsplit 一个新窗口打开选中文件，并跳到该窗口</span><br><span class="line">gs      vsplit 一个新 窗口打开选中文件，但不跳到该窗口</span><br><span class="line">!       执行当前文件</span><br><span class="line">O       递归打开选中 结点下的所有目录</span><br><span class="line">x       合拢选中结点的父目录</span><br><span class="line">X       递归 合拢选中结点下的所有目录</span><br><span class="line">e       Edit the current dif</span><br><span class="line"></span><br><span class="line">双击    相当于 NERDTree-o</span><br><span class="line">中键    对文件相当于 NERDTree-i，对目录相当于 NERDTree-e</span><br><span class="line"></span><br><span class="line">D       删除当前书签</span><br><span class="line"></span><br><span class="line">P       跳到根结点</span><br><span class="line">p       跳到父结点</span><br><span class="line">K       跳到当前目录下同级的第一个结点</span><br><span class="line">J       跳到当前目录下同级的最后一个结点</span><br><span class="line">k       跳到当前目录下同级的前一个结点</span><br><span class="line">j       跳到当前目录下同级的后一个结点</span><br><span class="line"></span><br><span class="line">C       将选中目录或选中文件的父目录设为根结点</span><br><span class="line">u       将当前根结点的父目录设为根目录，并变成合拢原根结点</span><br><span class="line">U       将当前根结点的父目录设为根目录，但保持展开原根结点</span><br><span class="line">r       递归刷新选中目录</span><br><span class="line">R       递归刷新根结点</span><br><span class="line">m       显示文件系统菜单 #！！！然后根据提示进行文件的操作如新建，重命名等</span><br><span class="line">cd      将 CWD 设为选中目录</span><br><span class="line"></span><br><span class="line">I       切换是否显示隐藏文件</span><br><span class="line">f       切换是否使用文件过滤器</span><br><span class="line">F       切换是否显示文件</span><br><span class="line">B       切换是否显示书签</span><br><span class="line"></span><br><span class="line">q       关闭 NerdTree 窗口</span><br><span class="line">?       切换是否显示 Quick Help</span><br><span class="line"></span><br><span class="line">标准模式下：</span><br><span class="line">gT      前一个 tab</span><br><span class="line">gt      后一个 tab</span><br><span class="line"></span><br><span class="line">MacVim 还可以借助快捷键来完成 tab 的关闭、切换</span><br><span class="line">cmd+w   关闭当前的 tab</span><br><span class="line">cmd+&#123;   前一个 tab</span><br><span class="line">cmd+&#125;   后一个 tab</span><br></pre></td></tr></table></figure>
+<p>启动服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start ss-local</span><br></pre></td></tr></table></figure>
 
-<p><a name="d41d8cd9"></a></p>
-<p>## </p>
+<p><a name="f82206a2"></a></p>
+<h3 id="2-创建成systemd服务"><a href="#2-创建成systemd服务" class="headerlink" title="2. 创建成systemd服务"></a>2. 创建成systemd服务</h3><p>定位到<code>/usr/lib/systemd/system</code>目录（如果没有就新建），新建ss-local.service。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line"><span class="meta">#</span>定义描述</span><br><span class="line">Description=The ss-local service</span><br><span class="line"><span class="meta">#</span>指定了在systemd在执行完那些target之后再启动该服务</span><br><span class="line">After=network.target remote-fs.target nss-lookup.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="meta">#</span>定义Service 的运行type，一般是forking，就是后台运行</span><br><span class="line">Type=simple</span><br><span class="line"><span class="meta">#</span>以下定义systemctl start |stop |reload *.service  的每个执行方法，具体命令#需要&gt;写绝对路径</span><br><span class="line">ExecStart=/home/fan/Documents/ss/ss-local.sh</span><br><span class="line"><span class="meta">#</span>创建私有的内存临时空间</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以设置开机启动了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 开机启动</span><br><span class="line">sudo systemctl enable ss-local.service</span><br><span class="line"><span class="meta">#</span> 启动服务</span><br><span class="line">sudo systemctl start ss-local.service</span><br></pre></td></tr></table></figure>
+
+<p>完</p>
 
     </div>
 
@@ -343,8 +352,8 @@
     <footer class="post-footer">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/03/04/vim常用快捷键/" rel="next" title="vim常用快捷键">
-                <i class="fa fa-chevron-left"></i> vim常用快捷键
+              <a href="/2018/03/22/javascript变态题/" rel="next" title="javascript变态题">
+                <i class="fa fa-chevron-left"></i> javascript变态题
               </a>
             
           </div>
@@ -352,8 +361,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/03/04/tmux常用命令以及快捷键/" rel="prev" title="tmux常用命令以及快捷键">
-                tmux常用命令以及快捷键 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/04/Linux无损调整分区大小/" rel="prev" title="Linux无损调整分区大小">
+                Linux无损调整分区大小 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,7 +497,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NERD-tree-配置"><span class="nav-number">1.</span> <span class="nav-text">NERD tree 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-number">2.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键"><span class="nav-number">3.</span> <span class="nav-text">快捷键</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前提"><span class="nav-number">2.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建服务（两种方式）"><span class="nav-number">3.</span> <span class="nav-text">创建服务（两种方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建成系统服务"><span class="nav-number">3.1.</span> <span class="nav-text">1. 创建成系统服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建成systemd服务"><span class="nav-number">3.2.</span> <span class="nav-text">2. 创建成systemd服务</span></a></li></ol></li></ol></div>
             
 
           </div>
