@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Windows &amp; Office KMS激活</title>
+      <link href="/2019/12/19/Windows%20&amp;%20Office%20KMS%E6%BF%80%E6%B4%BB/"/>
+      <url>/2019/12/19/Windows%20&amp;%20Office%20KMS%E6%BF%80%E6%B4%BB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Windows-amp-Office-KMS激活"><a href="#Windows-amp-Office-KMS激活" class="headerlink" title="Windows &amp; Office KMS激活"></a>Windows &amp; Office KMS激活</h1><h2 id="Windows激活"><a href="#Windows激活" class="headerlink" title="Windows激活"></a>Windows激活</h2><p>设置kms服务器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /skms kms.03k.org</span><br></pre></td></tr></table></figure><p>通过kms激活</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /ato</span><br></pre></td></tr></table></figure><p>如果系统不是VL版本，也可以通过，重新安装GVLK KEY变成VL版。（文章最下面查找GVLK）<br>查找自己的系统版本</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic os get caption</span><br></pre></td></tr></table></figure><a id="more"></a><p>安装KEY</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /ipk xxxxx-xxxxx-xxxxx-xxxxx</span><br></pre></td></tr></table></figure><h2 id="激活Office"><a href="#激活Office" class="headerlink" title="激活Office"></a>激活Office</h2><p>找到office安装目录，比如 <code>C:\Program Files (x86)\Microsoft Office\Office16</code><br>64位的就是<code>C:\Program Files\Microsoft Office\Office16</code><br>office16是office2016，office15就是2013，office14就是2010.<br>然后目录对的话，该目录下面应该有个<code>OSPP.VBS</code>。<br>接下来就cd到这个目录下面，例如（请更改为实际安装目录）：<br>找到目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd "C:\Program Files (x86)\Microsoft Office\Office16"</span><br></pre></td></tr></table></figure><p>设置kms服务器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cscript ospp.vbs /sethst:kms.03k.org</span><br></pre></td></tr></table></figure><p>激活office</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cscript ospp.vbs /act</span><br></pre></td></tr></table></figure><h2 id="GVLK-KEY查询"><a href="#GVLK-KEY查询" class="headerlink" title="GVLK KEY查询"></a>GVLK KEY查询</h2><blockquote><p>office2016 <a href="https://technet.microsoft.com/zh-cn/library/dn385360(v=office.16).aspx" target="_blank" rel="noopener">https://technet.microsoft.com/zh-cn/library/dn385360(v=office.16).aspx</a></p><p>office2013 <a href="https://technet.microsoft.com/ZH-CN/library/dn385360.aspx" target="_blank" rel="noopener">https://technet.microsoft.com/ZH-CN/library/dn385360.aspx</a></p><p>office2010 <a href="https://technet.microsoft.com/ZH-CN/library/ee624355(v=office.14).aspx" target="_blank" rel="noopener">https://technet.microsoft.com/ZH-CN/library/ee624355(v=office.14).aspx</a></p><p>Server/Windows <a href="https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys</a></p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>配置Powershell命令行代理</title>
       <link href="/2019/08/11/%E9%85%8D%E7%BD%AEPowershell%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/"/>
       <url>/2019/08/11/%E9%85%8D%E7%BD%AEPowershell%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/</url>
