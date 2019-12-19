@@ -4,56 +4,54 @@
 
 
 
-<html class="theme-next mist" lang="zh-CN">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.2" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.2">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
 
 
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"right","display":"always","offset":12,"onmobile":true},
     copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    search: {
-      root: '/',
-      path: 'search.xml'
-    },
-    tabs: true,
+    path: 'search.xml',
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
       copy_failure: '复制失败'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
 
@@ -67,9 +65,14 @@
   <link rel="canonical" href="https://anuoua.github.io/">
 
 
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
   };
 </script>
 
@@ -85,7 +88,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -94,9 +96,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -110,16 +111,15 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  <div class="container sidebar-position-left page-home">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">anuoua的</span>
@@ -129,124 +129,136 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
-    <ul id="menu" class="menu">
+  
+  <ul id="menu" class="menu">
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-home menu-item-active">
+        <li class="menu-item menu-item-home">
       
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-about">
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-tags">
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-categories">
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
+      
+    
+      
+      
         
         
-        
-          
-          <li class="menu-item menu-item-about">
+        <li class="menu-item menu-item-archives">
       
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
-          
-            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-        </li>
       
-    </ul>
     
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
 
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-    </div>
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/08/11/配置Powershell命令行代理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -259,25 +271,19 @@
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/11/配置Powershell命令行代理/" class="post-title-link" itemprop="url">配置Powershell命令行代理</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/08/11/配置Powershell命令行代理/" class="post-title-link" itemprop="url">配置Powershell命令行代理</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -287,7 +293,7 @@
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -298,20 +304,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：
-
-应用代理环境变量
-取消代理环境变量
-
-直接在powershell中调用这两命令就方便很多了。
-Powershell基本概念Powershell中不像
-              ...
-            </p>
+          <p>在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：</p><ul>
+<li>应用代理环境变量</li>
+<li>取消代理环境变量</li>
+</ul><p>直接在powershell中调用这两命令就方便很多了。</p><h2 id="Powershell基本概念"><a href="#Powershell基本概念" class="headerlink" title="Powershell基本概念"></a>Powershell基本概念</h2><p>Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都是操作Env这个对象。</p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2019/08/11/配置Powershell命令行代理/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -325,24 +324,19 @@ Powershell基本概念Powershell中不像
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/08/11/Powershell启动脚本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -355,25 +349,19 @@ Powershell基本概念Powershell中不像
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/11/Powershell启动脚本/" class="post-title-link" itemprop="url">Powershell启动脚本</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/08/11/Powershell启动脚本/" class="post-title-link" itemprop="url">Powershell启动脚本</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -383,7 +371,7 @@ Powershell基本概念Powershell中不像
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -394,24 +382,33 @@ Powershell基本概念Powershell中不像
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              Linux中bash有一个启动的默认配置文件：.bashrc或者.bash_profile，自定义命令以及预配置可以写在那里，但是windows的配置文件在哪里呢？
-按照微软官网的说法是按照以下的对应关系，但是实际上是不对的。
-
-
-
-Description
-Path
-
-
-
-All Users, Al
-              ...
-            </p>
+          <p>Linux中bash有一个启动的默认配置文件：<code>.bashrc</code>或者<code>.bash_profile</code>，自定义命令以及预配置可以写在那里，但是windows的配置文件在哪里呢？</p><p>按照微软官网的说法是按照以下的对应关系，但是实际上是不对的。</p><table>
+<thead>
+<tr>
+<th align="left">Description</th>
+<th align="left">Path</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">All Users, All Hosts</td>
+<td align="left"><code>$PsHome\Profile.ps1</code></td>
+</tr>
+<tr>
+<td align="left">All Users, Current Host</td>
+<td align="left"><code>$PsHome\Microsoft.PowerShell_profile.ps1</code></td>
+</tr>
+<tr>
+<td align="left">Current User, All Hosts</td>
+<td align="left"><code>$Home\[My ]Documents\PowerShell\Profile.ps1</code></td>
+</tr>
+<tr>
+<td align="left">Current user, Current Host</td>
+<td align="left"><code>$Home\[My ]Documents\PowerShell\ Microsoft.PowerShell_profile.ps1</code></td>
+</tr>
+</tbody></table>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2019/08/11/Powershell启动脚本/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -425,24 +422,19 @@ All Users, Al
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/ubuntu 18.04开启bbr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -455,25 +447,19 @@ All Users, Al
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/ubuntu 18.04开启bbr/" class="post-title-link" itemprop="url">ubuntu 18.04开启bbr</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/03/04/ubuntu 18.04开启bbr/" class="post-title-link" itemprop="url">ubuntu 18.04开启bbr</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -483,7 +469,7 @@ All Users, Al
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -494,16 +480,10 @@ All Users, Al
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              说明：Ubuntu 18.04前几天发布了，改变挺大的，内核也直接升到了正式版4.15，而BBR内核要求为4.9，也就是说满足了，所以我们不需要换内核就可以很快的开启BBR，这里简单说下方法。
-方法1、修改系统变量
-echo "net.core.default_qdisc=fq" &gt;&gt; 
-              ...
-            </p>
+          <p><strong>说明：</strong><code>Ubuntu 18.04</code>前几天发布了，改变挺大的，内核也直接升到了正式版<code>4.15</code>，而<code>BBR</code>内核要求为<code>4.9</code>，也就是说满足了，所以我们不需要换内核就可以很快的开启<code>BBR</code>，这里简单说下方法。<br><a name="ea340b9d"></a></p><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>1、修改系统变量</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"net.core.default_qdisc=fq"</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"net.ipv4.tcp_congestion_control=bbr"</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2019/03/04/ubuntu 18.04开启bbr/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -517,24 +497,19 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/Xshell调整tmux大小无效问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -547,25 +522,19 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/Xshell调整tmux大小无效问题/" class="post-title-link" itemprop="url">Xshell调整tmux大小无效问题</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/03/04/Xshell调整tmux大小无效问题/" class="post-title-link" itemprop="url">Xshell调整tmux大小无效问题</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -575,7 +544,7 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -586,20 +555,8 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，xshell这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是[1;5A和[1;5B，其中``是一个代表esc的特殊字符。复制输出的字符串，x
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/04/Xshell调整tmux大小无效问题/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <p>由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，<strong>xshell</strong>这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是<code>[1;5A</code>和<code>[1;5B</code>，其中``是一个代表<code>esc</code>的特殊字符。复制输出的字符串，xshell工具-&gt;选项-&gt;键盘和鼠标-&gt;编辑-&gt;新建，按ctrl+up，类型选择发送字符串，粘贴刚才复制的对应字符串，完成。</p>
+
         
       
     </div>
@@ -607,24 +564,19 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/tmux常用命令以及快捷键/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -637,25 +589,19 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/tmux常用命令以及快捷键/" class="post-title-link" itemprop="url">tmux常用命令以及快捷键</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/03/04/tmux常用命令以及快捷键/" class="post-title-link" itemprop="url">tmux常用命令以及快捷键</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -665,7 +611,7 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -676,31 +622,33 @@ echo "net.core.default_qdisc=fq" &gt;&gt;
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              
-命令行
-
-
-tmux new[-session] -s $session_name -d
-新建会话(-d 是否在后台)
-
-
-
-tmux new -s name -n $window_name
-新建会话及窗口
-
-
-tmux at[tach] -t session
-重新连接(-t 后接会话名称)
-
-
-
-              ...
-            </p>
+          <p><a name="dbb0d3bb"></a></p><h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><table>
+<thead>
+<tr>
+<th align="left">tmux new[-session] -s $session_name -d</th>
+<th align="left">新建会话(-d 是否在后台)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">tmux new -s name -n $window_name</td>
+<td align="left">新建会话及窗口</td>
+</tr>
+<tr>
+<td align="left">tmux at[tach] -t session</td>
+<td align="left">重新连接(-t 后接会话名称)</td>
+</tr>
+<tr>
+<td align="left">tmux ls</td>
+<td align="left">显示保存的会话</td>
+</tr>
+<tr>
+<td align="left">tmux kill-session -t $session_name</td>
+<td align="left">删除会话</td>
+</tr>
+</tbody></table>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2019/03/04/tmux常用命令以及快捷键/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -714,24 +662,19 @@ tmux at[tach] -t session
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/NERD tree 配置命令以及快捷键/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -744,25 +687,19 @@ tmux at[tach] -t session
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/NERD tree 配置命令以及快捷键/" class="post-title-link" itemprop="url">NERD tree 配置命令以及快捷键</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/03/04/NERD tree 配置命令以及快捷键/" class="post-title-link" itemprop="url">NERD tree 配置命令以及快捷键</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -772,7 +709,7 @@ tmux at[tach] -t session
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -783,19 +720,10 @@ tmux at[tach] -t session
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              
-NERD tree 配置使用F2快速展开或隐藏它打开vim时自动展开NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
-
-如果窗口除了NERDTree没有其他文件时，自动关闭，可以减少多次按:q
-autocmd bufenter * 
-              ...
-            </p>
+          <p><a name="57fc581c"></a></p><h2 id="NERD-tree-配置"><a href="#NERD-tree-配置" class="headerlink" title="NERD tree 配置"></a>NERD tree 配置</h2><p>使用F2快速展开或隐藏它打开vim时自动展开NERDTree</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd vimenter * <span class="keyword">if</span> !argc() | NERDTree | endif</span><br></pre></td></tr></table></figure><p>如果窗口除了NERDTree没有其他文件时，自动关闭，可以减少多次按:q</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd bufenter * <span class="keyword">if</span> (winnr(<span class="string">"$"</span>) == 1 &amp;&amp; exists(<span class="string">"b:NERDTreeType"</span>) &amp;&amp; b:NERDTreeType == <span class="string">"primary"</span>) | q | endif</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2019/03/04/NERD tree 配置命令以及快捷键/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -809,24 +737,19 @@ autocmd bufenter *
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/vim常用快捷键/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -839,25 +762,19 @@ autocmd bufenter *
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/vim常用快捷键/" class="post-title-link" itemprop="url">vim常用快捷键</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/03/04/vim常用快捷键/" class="post-title-link" itemprop="url">vim常用快捷键</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -867,7 +784,7 @@ autocmd bufenter *
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -878,20 +795,9 @@ autocmd bufenter *
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              v：按字符选择。经常使用的模式，所以亲自尝试一下它。V：按行选择。这在你想拷贝或者移动很多行的文本的时候特别有用。一、移动光标1、左移h、右移l、下移j、上移k2、向下翻页ctrl + f，向上翻页ctrl + b3、向下翻半页ctrl + d，向上翻半页ctrl + u4、移动到行尾$，移动到行首
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/04/vim常用快捷键/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">v：按字符选择。经常使用的模式，所以亲自尝试一下它。</span><br><span class="line"></span><br><span class="line">V：按行选择。这在你想拷贝或者移动很多行的文本的时候特别有用。</span><br><span class="line"></span><br><span class="line">一、移动光标</span><br><span class="line">1、左移h、右移l、下移j、上移k</span><br><span class="line">2、向下翻页ctrl + f，向上翻页ctrl + b</span><br><span class="line">3、向下翻半页ctrl + d，向上翻半页ctrl + u</span><br><span class="line">4、移动到行尾$，移动到行首0（数字），移动到行首第一个字符处^</span><br><span class="line">5、移动光标到下一个句子 ），移动光标到上一个句子（</span><br><span class="line">6、移动到段首&#123;，移动到段尾&#125;</span><br><span class="line">7、移动到下一个词w，移动到上一个词b</span><br><span class="line">8、移动到文档开始gg，移动到文档结束G</span><br><span class="line">9、移动到匹配的&#123;&#125;.().[]处%</span><br><span class="line">10、跳到第n行 ngg 或 nG 或 :n</span><br><span class="line">11、移动光标到屏幕顶端H，移动到屏幕中间M，移动到底部L</span><br><span class="line">12、读取当前字符，并移动到本屏幕内下一次出现的地方 *</span><br><span class="line">13、读取当前字符，并移动到本屏幕内上一次出现的地方 #</span><br><span class="line"></span><br><span class="line">二、查找替换</span><br><span class="line">1、光标向后查找关键字 #或者g#</span><br><span class="line">2、光标向前查找关键字 *或者g*</span><br><span class="line">3、当前行查找字符 fx, Fx, tx, Tx</span><br><span class="line">4、基本替换 :s/s1/s2 （将下一个s1替换为s2）</span><br><span class="line">5、全部替换 :%s/s1/s2</span><br><span class="line">6、只替换当前行 :s/s1/s2/g</span><br><span class="line">7、替换某些行 :n1,n2 s/s1/s2/g</span><br><span class="line">8、搜索模式为 /string，搜索下一处为n，搜索上一处为N</span><br><span class="line">9、制定书签 mx, 但是看不到书签标记，而且只能用小写字母</span><br><span class="line">10、移动到某标签处 `x，1旁边的键</span><br><span class="line">11、移动到上次编辑文件的位置 `.</span><br><span class="line"></span><br><span class="line">PS：.代表一个任意字符 *代表一个或多个字符的重复</span><br><span class="line">         正则表达式的内容将会在后续文章中整理</span><br><span class="line"></span><br><span class="line">三、编辑操作</span><br><span class="line">1、光标后插入a, 行尾插入A</span><br><span class="line">2、后插一行插入o，前插一行插入O</span><br><span class="line">3、删除字符插入s， 删除正行插入S</span><br><span class="line">4、光标前插入i，行首插入I</span><br><span class="line">5、删除一行dd，删除后进入插入模式cc或者S</span><br><span class="line">6、删除一个单词dw，删除一个单词进入插入模式cw</span><br><span class="line">7、删除一个字符x或者dl，删除一个字符进入插入模式s或者cl</span><br><span class="line">8、粘贴p，交换两个字符xp，交换两行ddp</span><br><span class="line">9、复制y，复制一行yy</span><br><span class="line">10、撤销u，重做ctrl + r，重复.</span><br><span class="line">11、智能提示 ctrl + n 或者 ctrl + p</span><br><span class="line">12、删除motion跨过的字符，删除并进入插入模式 c&#123;motion&#125;</span><br><span class="line">13、删除到下一个字符跨过的字符，删除并进入插入模式，不包括x字符 ctx</span><br><span class="line">14、删除当前字符到下一个字符处的所有字符，并进入插入模式，包括x字符，cfx</span><br><span class="line">15、删除motion跨过的字符，删除但不进入插入模式 d&#123;motion&#125;</span><br><span class="line">16、删除motion跨过的字符，删除但不进入插入模式，不包括x字符 dtx</span><br><span class="line">17、删除当前字符到下一个字符处的所有字符，包括x字符 dfx</span><br><span class="line">18、如果只是复制的情况时，将12-17条中的c或d改为y</span><br><span class="line">19、删除到行尾可以使用D或C</span><br><span class="line">20、拷贝当前行 yy或者Y</span><br><span class="line">21、删除当前字符 x</span><br><span class="line">22、粘贴 p</span><br><span class="line">23、可以使用多重剪切板，查看状态使用:reg，使用剪切板使用”，例如复制到w寄存器，”wyy，或者使用可视模式v”wy</span><br><span class="line">24、重复执行上一个作用使用.</span><br><span class="line">25、使用数字可以跨过n个区域，如y3x，会拷贝光标到第三个x之间的区域，3j向下移动3行</span><br><span class="line">26、在编写代码的时候可以使用]p粘贴，这样可以自动进行代码缩进</span><br><span class="line">27、 &gt;&gt; 缩进所有选择的代码</span><br><span class="line">28、 &lt;&lt; 反缩进所有选择的代码</span><br><span class="line">29、gd 移动到光标所处的函数或变量的定义处</span><br><span class="line">30、K 在man里搜索光标所在的词</span><br><span class="line">31、合并两行 J</span><br><span class="line">32、若不想保存文件，而重新打开 :e!</span><br><span class="line">33、若想打开新文件 :e filename，然后使用ctrl + ^进行文件切换</span><br><span class="line"></span><br><span class="line">四、窗口操作</span><br><span class="line">1、分隔一个窗口:split或者:vsplit</span><br><span class="line">2、创建一个窗口:new或者:vnew</span><br><span class="line">3、在新窗口打开文件:sf &#123;filename&#125;</span><br><span class="line">4、关闭当前窗口:close</span><br><span class="line">5、仅保留当前窗口:only</span><br><span class="line">6、到左边窗口 ctrl + w, h</span><br><span class="line">7、到右边窗口 ctrl + w, l</span><br><span class="line">8、到上边窗口 ctrl + w, k</span><br><span class="line">9、到下边窗口 ctrl + w, j</span><br><span class="line">10、到顶部窗口 ctrl + w, t</span><br><span class="line">11、到底部窗口 ctrl + w, b</span><br><span class="line"></span><br><span class="line">五、宏操作</span><br><span class="line">1、开始记录宏操作q[a-z]，按q结束，保存操作到寄存器[a-z]中</span><br><span class="line">2、@[a-z]执行寄存器[a-z]中的操作</span><br><span class="line">3、@@执行最近一次记录的宏操作</span><br><span class="line"></span><br><span class="line">六、可视操作</span><br><span class="line">1、进入块可视模式 ctrl + v</span><br><span class="line">2、进入字符可视模式 v</span><br><span class="line">3、进入行可视模式 V</span><br><span class="line">4、删除选定的块 d</span><br><span class="line">5、删除选定的块然后进入插入模式 c</span><br><span class="line">6、在选中的块同是插入相同的字符 I&lt;String&gt;ESC</span><br><span class="line"></span><br><span class="line">七、跳到声明</span><br><span class="line">1、[[ 向前跳到顶格第一个&#123;  </span><br><span class="line">2、[] 向前跳到顶格第一个&#125;</span><br><span class="line">3、]] 向后跳到顶格的第一个&#123;</span><br><span class="line">4、]] 向后跳到顶格的第一个&#125;</span><br><span class="line">5、[&#123; 跳到本代码块的开头</span><br><span class="line">6、]&#125; 跳到本代码块的结尾</span><br><span class="line"></span><br><span class="line">八、挂起操作</span><br><span class="line">1、挂起Vim ctrl + z 或者 :suspend</span><br><span class="line">2、查看任务 在shell中输入 jobs</span><br><span class="line">3、恢复任务 fg [job number]（将后台程序放到前台）或者 bg [job number]（将前台程序放到后台）</span><br><span class="line">4、执行shell命令 :!command</span><br><span class="line">5、开启shell命令 :shell，退出该shell exit</span><br><span class="line">6、保存vim状态 :mksession name.vim</span><br><span class="line">7、恢复vim状态 :source name.vim</span><br><span class="line">8、启动vim时恢复状态 vim -S name.vim</span><br></pre></td></tr></table></figure>
+
+
         
       
     </div>
@@ -899,24 +805,19 @@ autocmd bufenter *
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/Linux无损调整分区大小/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -929,25 +830,19 @@ autocmd bufenter *
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/Linux无损调整分区大小/" class="post-title-link" itemprop="url">Linux无损调整分区大小</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/03/04/Linux无损调整分区大小/" class="post-title-link" itemprop="url">Linux无损调整分区大小</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -957,7 +852,7 @@ autocmd bufenter *
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -968,19 +863,32 @@ autocmd bufenter *
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              
-场景500G 硬盘
-100MB `boot`分区 |8G `swap`分区 |450G `/`分区我需要将/home分区单独提取一个分区出来，即变成
-100MB `boot`分区 |8G `swap`分区 |100G `/`分区 |350G `/home`分区
-步骤
-sudo e2fsck -fy
-              ...
-            </p>
+          <p><a name="c931653c"></a></p><h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>500G 硬盘</p><pre><code>100MB `boot`分区 |8G `swap`分区 |450G `/`分区</code></pre><p>我需要将<code>/home</code>分区单独提取一个分区出来，即变成</p><pre><code>100MB `boot`分区 |8G `swap`分区 |100G `/`分区 |350G `/home`分区</code></pre><p><a name="52b36576"></a></p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>sudo e2fsck -fy /dev/sda3 // f 是表示检查，y表示一直确认，直到修复完</li>
+<li>sudo resize2fs /dev/sda3 100G  //将文件系统调整到50G（不太明白文件系统大小和分区大小的关系）</li>
+<li>sudo fdisk /dev/sda  // 使用fdisk进行分区</li>
+<li>首先输入p，查看要调整分区（sda3）的start序号（重要）</li>
+<li>输入 <code>d</code> 删除要sda3，选择3</li>
+<li>输入 <code>n</code> 添加一个主分区，分区号选择3</li>
+<li>选择<code>start</code>地址，就是刚才查看的地址（一般不用修改，默认就是刚才的值）</li>
+<li>选择分区容量，输入<code>+100G</code></li>
+<li>然后再新建一个分区，输入n，选择p（主分区），选择默认起点，再选择默认终点</li>
+<li>按w保存分区表<ol>
+<li>这里有可能会报错，什么device被占用之类的错误</li>
+<li>使用 <code>partprobe /dev/sda</code>命令重载/dev/sda 重载分区表，（命令成功界面没有显示）</li>
+</ol>
+</li>
+<li><code>sudo e2fsck -fy /dev/sda3</code> 修复sda3分区</li>
+<li><code>sudo resize2fs /dev/sda3</code> 检查一下有没有问题</li>
+<li>sda3分区已经没有问题了，数据全部都保留着。</li>
+<li>格式化sda4 <code>sudo mkfs.ext4 /dev/sda4</code></li>
+<li>然后就是迁移所有<code>/home</code>数据到<code>sda4</code></li>
+<li>在fstab中添加一行  <code>UUID=xxxxxxxxxxxxxxx /home ext4 defaults 0 0</code></li>
+<li>开机后使用<code>sudo chown -R username:username /home/fan</code>，否则由于权限问题导致无法登录</li>
+</ol>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2019/03/04/Linux无损调整分区大小/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -994,24 +902,19 @@ sudo e2fsck -fy
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/Linux创建开机启动服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1024,25 +927,19 @@ sudo e2fsck -fy
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/Linux创建开机启动服务/" class="post-title-link" itemprop="url">Linux创建开机启动服务</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2019/03/04/Linux创建开机启动服务/" class="post-title-link" itemprop="url">Linux创建开机启动服务</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -1052,7 +949,7 @@ sudo e2fsck -fy
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -1063,17 +960,10 @@ sudo e2fsck -fy
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              
-需求使用linux离不开ss，每次都需要手动输入命令开启，很麻烦，所以需要创建开机就启动的服务。
-前提假设我们有一段需要开机启动的服务脚本/home/username/document/ss-local.sh如下
-ss-local -c /home/username/document/ssconf
-              ...
-            </p>
+          <p><a name="e6cefb85"></a></p><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>使用linux离不开ss，每次都需要手动输入命令开启，很麻烦，所以需要创建开机就启动的服务。<br><a name="a62d8a1a"></a></p><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>假设我们有一段需要开机启动的服务脚本<code>/home/username/document/ss-local.sh</code>如下</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss-local -c /home/username/document/ssconfig.json</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2019/03/04/Linux创建开机启动服务/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -1087,24 +977,19 @@ ss-local -c /home/username/document/ssconf
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2018/03/22/javascript变态题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1117,25 +1002,19 @@ ss-local -c /home/username/document/ssconf
       <meta itemprop="name" content="anuoua的">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/22/javascript变态题/" class="post-title-link" itemprop="url">javascript变态题</a>
-              
+        <h1 class="post-title" itemprop="name headline">
+          
             
-          </h1>
-        
+            <a href="/2018/03/22/javascript变态题/" class="post-title-link" itemprop="url">javascript变态题</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
+              <span class="post-meta-item-text">发表于</span>
 
               
                 
@@ -1145,7 +1024,7 @@ ss-local -c /home/username/document/ssconf
             </span>
           
 
-          <br>
+          
 
         </div>
       </header>
@@ -1156,17 +1035,10 @@ ss-local -c /home/username/document/ssconf
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>
-              原帖： https://github.com/xiaoyu2er/blog/issues/1原题来自: javascript-puzzlers
-读者可以先去做一下感受感受. 当初笔者的成绩是 21/44…
-当初笔者做这套题的时候不仅怀疑智商, 连人生都开始怀疑了….
-不过, 对于基础知识的理解是深入
-              ...
-            </p>
+          <p>原帖： <a href="https://github.com/xiaoyu2er/blog/issues/1" target="_blank" rel="noopener">https://github.com/xiaoyu2er/blog/issues/1</a><br><br>原题来自: <a href="http://javascript-puzzlers.herokuapp.com/" target="_blank" rel="noopener">javascript-puzzlers</a></p><p>读者可以先去做一下感受感受. 当初笔者的成绩是 21/44…</p><p>当初笔者做这套题的时候不仅怀疑智商, 连人生都开始怀疑了….</p><p>不过, 对于基础知识的理解是深入编程的前提. 让我们一起来看看这些变态题到底变态不变态吧!</p>
           <!--noindex-->
           
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="/2018/03/22/javascript变态题/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
@@ -1180,23 +1052,22 @@ ss-local -c /home/username/document/ssconf
     
     
     
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
     
-  </section>
+  </div>
 
   
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
+
 
 
           </div>
@@ -1205,25 +1076,36 @@ ss-local -c /home/username/document/ssconf
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">anuoua</p>
-  <div class="site-description motion-element" itemprop="description"></div>
+  <div class="site-description" itemprop="description"></div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
         
           <a href="/archives/">
@@ -1241,10 +1123,6 @@ ss-local -c /home/username/document/ssconf
             <a href="/categories/">
           
         
-        
-        
-          
-        
         <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">分类</span>
         </a>
@@ -1258,18 +1136,13 @@ ss-local -c /home/username/document/ssconf
             <a href="/tags/">
           
         
-        
-        
-          
-        
-          
-        
         <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
     
   </nav>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
       
@@ -1282,22 +1155,10 @@ ss-local -c /home/username/document/ssconf
         <a href="https://github.com/anuoua" title="GitHub &rarr; https://github.com/anuoua" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
     
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:anuoua@gmail.com" title="E-Mail &rarr; mailto:anuoua@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
   </div>
 
 
 
-        </div>
       </div>
 
     </div>
@@ -1308,19 +1169,31 @@ ss-local -c /home/username/document/ssconf
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">anuoua</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.3.0</div>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
 
         
+
+
+
+
 
 
 
@@ -1332,73 +1205,45 @@ ss-local -c /home/username/document/ssconf
         
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  <script src="/js/utils.js?v=7.3.0"></script>
-
-  
-  <script src="/js/schemes/muse.js?v=7.3.0"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.4.2"></script>
+<script src="/js/schemes/pisces.js?v=7.4.2"></script>
+<script src="/js/next-boot.js?v=7.4.2"></script>
 
 
 
   
 
-  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.2"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
   
 
   
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
