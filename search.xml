@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>自建KMS服务</title>
+      <link href="/2019/12/19/%E8%87%AA%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1/"/>
+      <url>/2019/12/19/%E8%87%AA%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="自建KMS服务"><a href="#自建KMS服务" class="headerlink" title="自建KMS服务"></a>自建KMS服务</h1><h2 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h2><p>项目地址：<a href="https://github.com/Wind4/vlmcsd" target="_blank" rel="noopener">Wind4/vlmcsd</a></p><h3 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h3><p>为了避免系统环境不同引发未知问题，在这里使用 Docker。<br>Ubuntu 安装脚本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure><p>CentOS 安装脚本：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="安装-vlmscd"><a href="#安装-vlmscd" class="headerlink" title="安装 vlmscd"></a>安装 vlmscd</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mikolatero/vlmcsd</span><br><span class="line">docker run -d -p 1688:1688 --restart=always --name="vlmcsd" mikolatero/vlmcsd</span><br></pre></td></tr></table></figure><h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>需要打开 1688 端口供 vlmcsd 使用。在这里举两个常用的。</p><h4 id="UFW"><a href="#UFW" class="headerlink" title="UFW"></a>UFW</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 1688</span><br></pre></td></tr></table></figure><h4 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp --dport 1688 -j ACCEPT</span><br><span class="line">iptables -A OUTPUT -p tcp --sport 1688 -j ACCEPT</span><br></pre></td></tr></table></figure><p>完！</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows &amp; Office KMS激活</title>
       <link href="/2019/12/19/Windows%20&amp;%20Office%20KMS%E6%BF%80%E6%B4%BB/"/>
       <url>/2019/12/19/Windows%20&amp;%20Office%20KMS%E6%BF%80%E6%B4%BB/</url>
