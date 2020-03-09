@@ -320,7 +320,7 @@
 <p>详见：<a href="https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks" target="_blank" rel="noopener">remote-ssh-tips-and-tricks</a></p>
 <p>但是这样太不方便了，两台服务器，配置过于复杂了。</p>
 <h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>可以通过git自带的connect.exe来完成，可以在git安装目录中找到这个exe文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host xxx.xxx.xxx.xxx</span><br><span class="line">  HostName xxx.xxx.xxx.xxx</span><br><span class="line">  User root</span><br><span class="line">  ProxyCommand <span class="string">"C:\Program Files\Git\mingw64\bin\connect.exe"</span> -H 127.0.0.1:1081 %h %p</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host xxx.xxx.xxx.xxx</span><br><span class="line">  HostName xxx.xxx.xxx.xxx</span><br><span class="line">  User root</span><br><span class="line">  ProxyCommand C:\Program Files\Git\mingw64\bin\connect.exe -H 127.0.0.1:1081 %h %p</span><br></pre></td></tr></table></figure>
 
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>vscode常规代理配置方法，是在运行时需要通过命令行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode --proxy-server=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
