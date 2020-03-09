@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令： 应用代理环境变量 取消代理环境变量 直接在powershell中调用这两命令就方便很多了。Powershell基本概念Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都是操作">
+  <meta name="description" content="去年vscode就支持了远程开发，通过ssh连接到服务器，就像在本地写代码一样，实在是太爽了。但是有一个问题是，vscode的ssh无法通过代理访问，官方文档上的方法需要一台跳板机来完成。方法一123456789101112# Jump box with public IP addressHost jump-box    HostName 52.179.157.97    User sana">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置Powershell命令行代理">
-<meta property="og:url" content="https://anuoua.github.io/2019/08/11/配置Powershell命令行代理/index.html">
+<meta property="og:title" content="vscode远程开发的代理配置">
+<meta property="og:url" content="https://anuoua.github.io/2020/02/28/vscode远程开发的代理配置/index.html">
 <meta property="og:site_name" content="anuoua的">
-<meta property="og:description" content="在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令： 应用代理环境变量 取消代理环境变量 直接在powershell中调用这两命令就方便很多了。Powershell基本概念Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都是操作">
+<meta property="og:description" content="去年vscode就支持了远程开发，通过ssh连接到服务器，就像在本地写代码一样，实在是太爽了。但是有一个问题是，vscode的ssh无法通过代理访问，官方文档上的方法需要一台跳板机来完成。方法一123456789101112# Jump box with public IP addressHost jump-box    HostName 52.179.157.97    User sana">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-05T16:16:00.000Z">
+<meta property="og:updated_time" content="2020-02-28T02:53:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置Powershell命令行代理">
-<meta name="twitter:description" content="在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令： 应用代理环境变量 取消代理环境变量 直接在powershell中调用这两命令就方便很多了。Powershell基本概念Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都是操作">
-  <link rel="canonical" href="https://anuoua.github.io/2019/08/11/配置Powershell命令行代理/">
+<meta name="twitter:title" content="vscode远程开发的代理配置">
+<meta name="twitter:description" content="去年vscode就支持了远程开发，通过ssh连接到服务器，就像在本地写代码一样，实在是太爽了。但是有一个问题是，vscode的ssh无法通过代理访问，官方文档上的方法需要一台跳板机来完成。方法一123456789101112# Jump box with public IP addressHost jump-box    HostName 52.179.157.97    User sana">
+  <link rel="canonical" href="https://anuoua.github.io/2020/02/28/vscode远程开发的代理配置/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>配置Powershell命令行代理 | anuoua的</title>
+  <title>vscode远程开发的代理配置 | anuoua的</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/08/11/配置Powershell命令行代理/">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/02/28/vscode远程开发的代理配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="anuoua">
@@ -277,7 +277,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            配置Powershell命令行代理
+            vscode远程开发的代理配置
             
 
           
@@ -294,19 +294,11 @@
                 
               
 
-              <time title="创建时间：2019-08-11 15:01:04" itemprop="dateCreated datePublished" datetime="2019-08-11T15:01:04+00:00">2019-08-11</time>
+              <time title="创建时间：2020-02-28 02:43:11 / 修改时间：02:53:11" itemprop="dateCreated datePublished" datetime="2020-02-28T02:43:11+00:00">2020-02-28</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-05 16:16:00" itemprop="dateModified" datetime="2020-02-05T16:16:00+00:00">2020-02-05</time>
-              </span>
             
           
 
@@ -321,29 +313,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在日常windows环境开发中，powershell经常需要用到代理，但是每次去系统变量中配置环境变量还是显得过于麻烦了，所以我们可以定义两个命令：</p><ul>
-<li>应用代理环境变量</li>
-<li>取消代理环境变量</li>
-</ul><p>直接在powershell中调用这两命令就方便很多了。</p><h2 id="Powershell基本概念"><a href="#Powershell基本概念" class="headerlink" title="Powershell基本概念"></a>Powershell基本概念</h2><p>Powershell中不像bash那样所有东西都是字符串，它支持对象，比如环境变量是存放在Env对象中的，添加和移除环境变量都是操作Env这个对象。</p><a id="more"></a>
+        <p>去年vscode就支持了远程开发，通过ssh连接到服务器，就像在本地写代码一样，实在是太爽了。</p><p>但是有一个问题是，vscode的ssh无法通过代理访问，官方文档上的方法需要一台<code>跳板机</code>来完成。</p><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jump box with public IP address</span></span><br><span class="line">Host jump-box</span><br><span class="line">    HostName 52.179.157.97</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/jumpbox</span><br><span class="line"></span><br><span class="line"><span class="comment"># Target machine with private IP address</span></span><br><span class="line">Host target-box</span><br><span class="line">    HostName &lt;IP address of target&gt;</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/target</span><br><span class="line">    ProxyCommand ssh -q -W %h:%p jump-box</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
 
-<p>操作对象的方式（以环境变量为例）：</p>
-<ul>
-<li>添加/修改一个键值对：<code>Set-Item Env:http_proxy = &quot;http://127.0.0.1:1080&quot;</code></li>
-<li>移除一个键值对：<code>Remove-Item Env:http_proxy</code></li>
-</ul>
-<p>知道这个就能配置代理了。</p>
-<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><p>我们需要将这两个命令写入powershell启动脚本（类似linux的<code>.bashrc</code>），windows启动脚本在哪儿？<a href="/2019/08/11/Powershell启动脚本/" title="点击这里">点击这里</a></p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">set_proxy_variable</span></span> &#123;</span><br><span class="line">	<span class="built_in">Set-Item</span> Env:http_proxy <span class="string">"http://127.0.0.1:1080"</span>  <span class="comment"># 代理地址</span></span><br><span class="line">	<span class="built_in">Set-Item</span> Env:https_proxy <span class="string">"http://127.0.0.1:1080"</span> <span class="comment"># 代理地址</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unset_proxy_variable</span></span> &#123;</span><br><span class="line">    <span class="built_in">Remove-Item</span> Env:http_proxy</span><br><span class="line">    <span class="built_in">Remove-Item</span> Env:https_proxy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">New-Alias</span> <span class="literal">-Name</span> spp <span class="literal">-Value</span> set_proxy_variable</span><br><span class="line"><span class="built_in">New-Alias</span> <span class="literal">-Name</span> upp <span class="literal">-Value</span> unset_proxy_variable</span><br></pre></td></tr></table></figure>
+<p>详见：<a href="https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks" target="_blank" rel="noopener">remote-ssh-tips-and-tricks</a></p>
+<p>但是这样太不方便了，两台服务器，配置过于复杂了。</p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>可以通过git自带的connect.exe来完成，可以在git安装目录中找到这个exe文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host xxx.xxx.xxx.xxx</span><br><span class="line">  HostName xxx.xxx.xxx.xxx</span><br><span class="line">  User root</span><br><span class="line">  ProxyCommand <span class="string">"C:\Program Files\Git\mingw64\bin\connect.exe"</span> -H 127.0.0.1:1081 %h %p</span><br></pre></td></tr></table></figure>
 
-<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><p>如果打开新的poewrshell窗口报<code>此系统上禁止运行脚本</code>错误，需要设置运行策略。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>vscode常规代理配置方法，是在运行时需要通过命令行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode --proxy-server=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
-<li><code>spp</code> 启用代理</li>
-<li><code>upp</code> 取消代理</li>
-</ul>
 
     </div>
 
@@ -360,8 +341,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/11/Powershell启动脚本/" rel="next" title="Powershell启动脚本">
-                  <i class="fa fa-chevron-left"></i> Powershell启动脚本
+                <a href="/2019/12/19/自建KMS服务/" rel="next" title="自建KMS服务">
+                  <i class="fa fa-chevron-left"></i> 自建KMS服务
                 </a>
               
             </div>
@@ -369,10 +350,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/12/19/Windows & Office KMS激活/" rel="prev" title="Windows & Office KMS激活">
-                  Windows & Office KMS激活 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -418,7 +395,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Powershell基本概念"><span class="nav-number">1.</span> <span class="nav-text">Powershell基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写脚本"><span class="nav-number">2.</span> <span class="nav-text">编写脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错"><span class="nav-number">3.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">3.</span> <span class="nav-text">注意</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

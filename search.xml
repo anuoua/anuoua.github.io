@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>vscode远程开发的代理配置</title>
+      <link href="/2020/02/28/vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/"/>
+      <url>/2020/02/28/vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>去年vscode就支持了远程开发，通过ssh连接到服务器，就像在本地写代码一样，实在是太爽了。</p><p>但是有一个问题是，vscode的ssh无法通过代理访问，官方文档上的方法需要一台<code>跳板机</code>来完成。</p><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jump box with public IP address</span></span><br><span class="line">Host jump-box</span><br><span class="line">    HostName 52.179.157.97</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/jumpbox</span><br><span class="line"></span><br><span class="line"><span class="comment"># Target machine with private IP address</span></span><br><span class="line">Host target-box</span><br><span class="line">    HostName &lt;IP address of target&gt;</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/target</span><br><span class="line">    ProxyCommand ssh -q -W %h:%p jump-box</span><br></pre></td></tr></table></figure><a id="more"></a><p>详见：<a href="https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks" target="_blank" rel="noopener">remote-ssh-tips-and-tricks</a></p><p>但是这样太不方便了，两台服务器，配置过于复杂了。</p><h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>可以通过git自带的connect.exe来完成，可以在git安装目录中找到这个exe文件。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host xxx.xxx.xxx.xxx</span><br><span class="line">  HostName xxx.xxx.xxx.xxx</span><br><span class="line">  User root</span><br><span class="line">  ProxyCommand <span class="string">"C:\Program Files\Git\mingw64\bin\connect.exe"</span> -H 127.0.0.1:1081 %h %p</span><br></pre></td></tr></table></figure><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>vscode常规代理配置方法，是在运行时需要通过命令行。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vscode --proxy-server=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>自建KMS服务</title>
       <link href="/2019/12/19/%E8%87%AA%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1/"/>
       <url>/2019/12/19/%E8%87%AA%E5%BB%BAKMS%E6%9C%8D%E5%8A%A1/</url>
