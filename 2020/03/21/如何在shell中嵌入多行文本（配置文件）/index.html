@@ -55,14 +55,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="anuoua的">
-<meta property="og:url" content="https://anuoua.github.io/archives/2019/12/index.html">
+  <meta name="description" content="stackoverflow 链接answerHeredoc sounds more convenient for this purpose. It is used to send multiple commands to a command interpreter program like ex or cat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在shell中嵌入多行文本（配置文件）">
+<meta property="og:url" content="https://anuoua.github.io/2020/03/21/如何在shell中嵌入多行文本（配置文件）/index.html">
 <meta property="og:site_name" content="anuoua的">
+<meta property="og:description" content="stackoverflow 链接answerHeredoc sounds more convenient for this purpose. It is used to send multiple commands to a command interpreter program like ex or cat">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-21T02:20:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="anuoua的">
-  <link rel="canonical" href="https://anuoua.github.io/archives/2019/12/">
+<meta name="twitter:title" content="如何在shell中嵌入多行文本（配置文件）">
+<meta name="twitter:description" content="stackoverflow 链接answerHeredoc sounds more convenient for this purpose. It is used to send multiple commands to a command interpreter program like ex or cat">
+  <link rel="canonical" href="https://anuoua.github.io/2020/03/21/如何在shell中嵌入多行文本（配置文件）/">
 
 
 <script id="page-configurations">
@@ -70,13 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | anuoua的</title>
+  <title>如何在shell中嵌入多行文本（配置文件） | anuoua的</title>
   
 
 
@@ -251,116 +255,116 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/03/21/如何在shell中嵌入多行文本（配置文件）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
           
-        
-        <span class="collection-header">嗯..! 目前共计 16 篇日志。 继续努力。</span>
-      </div>
-      
+            如何在shell中嵌入多行文本（配置文件）
+            
 
-      
+          
+        </h1>
 
-  
-  
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-  
+              
+                
+              
+
+              <time title="创建时间：2020-03-21 02:20:11" itemprop="dateCreated datePublished" datetime="2020-03-21T02:20:11+00:00">2020-03-21</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p><a href="https://stackoverflow.com/questions/23929235/multi-line-string-with-extra-space-preserved-indentation" target="_blank" rel="noopener">stackoverflow 链接</a></p><h2 id="answer"><a href="#answer" class="headerlink" title="answer"></a>answer</h2><p>Heredoc sounds more convenient for this purpose. It is used to send multiple commands to a command interpreter program like ex or cat</p><a id="more"></a>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-19T05:53:59+00:00"
-              content="2019-12-19">
-          12-19
-        </time>
-      </div>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EndOfMessage</span><br><span class="line">This is line 1.</span><br><span class="line">This is line 2.</span><br><span class="line">Line 3.</span><br><span class="line">EndOfMessage</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/12/19/自建KMS服务/" itemprop="url">
-            <span itemprop="name">自建KMS服务</span>
-          </a>
-        
-      </h2>
+<p>The string after &lt;&lt; indicates where to stop.</p>
+<p>To send these lines to a file, use:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; $FILE &lt;&lt;- EOM</span><br><span class="line">Line 1.</span><br><span class="line">Line 2.</span><br><span class="line">EOM</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<p>You could also store these lines to a variable:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">read -r -d '' VAR &lt;&lt; EOM</span><br><span class="line">This is line 1.</span><br><span class="line">This is line 2.</span><br><span class="line">Line 3.</span><br><span class="line">EOM</span><br></pre></td></tr></table></figure>
 
+<p>This stores the lines to the variable named VAR.</p>
+<p>When printing, remember the quotes around the variable otherwise you won’t see the newline characters.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "$VAR"</span><br></pre></td></tr></table></figure>
 
+<p>Even better, you can use indentation to make it stand out more in your code. This time just add a - after &lt;&lt; to stop the tabs from appearing.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">read -r -d '' VAR &lt;&lt;- EOM</span><br><span class="line">    This is line 1.</span><br><span class="line">    This is line 2.</span><br><span class="line">    Line 3.</span><br><span class="line">EOM</span><br></pre></td></tr></table></figure>
 
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-12-19T05:50:59+00:00"
-              content="2019-12-19">
-          12-19
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/12/19/Windows & Office KMS激活/" itemprop="url">
-            <span itemprop="name">Windows & Office KMS激活</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
+<p>But then you must use tabs, not spaces, for indentation in your code.</p>
 
     </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/02/28/vscode远程开发的代理配置/" rel="next" title="vscode远程开发的代理配置">
+                  <i class="fa fa-chevron-left"></i> vscode远程开发的代理配置
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -377,6 +381,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -389,6 +398,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#answer"><span class="nav-number">1.</span> <span class="nav-text">answer</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

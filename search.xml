@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>如何在shell中嵌入多行文本（配置文件）</title>
+      <link href="/2020/03/21/%E5%A6%82%E4%BD%95%E5%9C%A8shell%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%EF%BC%88%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%89/"/>
+      <url>/2020/03/21/%E5%A6%82%E4%BD%95%E5%9C%A8shell%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%EF%BC%88%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://stackoverflow.com/questions/23929235/multi-line-string-with-extra-space-preserved-indentation" target="_blank" rel="noopener">stackoverflow 链接</a></p><h2 id="answer"><a href="#answer" class="headerlink" title="answer"></a>answer</h2><p>Heredoc sounds more convenient for this purpose. It is used to send multiple commands to a command interpreter program like ex or cat</p><a id="more"></a><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EndOfMessage</span><br><span class="line">This is line 1.</span><br><span class="line">This is line 2.</span><br><span class="line">Line 3.</span><br><span class="line">EndOfMessage</span><br></pre></td></tr></table></figure><p>The string after &lt;&lt; indicates where to stop.</p><p>To send these lines to a file, use:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; $FILE &lt;&lt;- EOM</span><br><span class="line">Line 1.</span><br><span class="line">Line 2.</span><br><span class="line">EOM</span><br></pre></td></tr></table></figure><p>You could also store these lines to a variable:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">read -r -d '' VAR &lt;&lt; EOM</span><br><span class="line">This is line 1.</span><br><span class="line">This is line 2.</span><br><span class="line">Line 3.</span><br><span class="line">EOM</span><br></pre></td></tr></table></figure><p>This stores the lines to the variable named VAR.</p><p>When printing, remember the quotes around the variable otherwise you won’t see the newline characters.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "$VAR"</span><br></pre></td></tr></table></figure><p>Even better, you can use indentation to make it stand out more in your code. This time just add a - after &lt;&lt; to stop the tabs from appearing.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">read -r -d '' VAR &lt;&lt;- EOM</span><br><span class="line">    This is line 1.</span><br><span class="line">    This is line 2.</span><br><span class="line">    Line 3.</span><br><span class="line">EOM</span><br></pre></td></tr></table></figure><p>But then you must use tabs, not spaces, for indentation in your code.</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vscode远程开发的代理配置</title>
       <link href="/2020/02/28/vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/"/>
       <url>/2020/02/28/vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E7%9A%84%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/</url>
