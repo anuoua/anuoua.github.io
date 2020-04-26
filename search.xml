@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>wifi提示&quot;已连接 但无法访问互联网&quot;的解决办法</title>
+      <link href="/2020/04/26/wifi%E6%8F%90%E7%A4%BA%22%E5%B7%B2%E8%BF%9E%E6%8E%A5%20%E4%BD%86%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%92%E8%81%94%E7%BD%91%22%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+      <url>/2020/04/26/wifi%E6%8F%90%E7%A4%BA%22%E5%B7%B2%E8%BF%9E%E6%8E%A5%20%E4%BD%86%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%92%E8%81%94%E7%BD%91%22%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>安装adb，然后打开电视机开发者模式，打开网络调试。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adb connect xxx.xxx.xxx.xxx</span><br><span class="line">adb shell settings put global captive_portal_detection_enabled 1</span><br><span class="line">adb shell settings put global captive_portal_mode 1</span><br><span class="line">adb shell settings put global captive_portal_use_https 0</span><br><span class="line">adb shell settings put global captive_portal_server connect.rom.miui.com</span><br><span class="line">adb shell settings put global captive_portal_http_url http://connect.rom.miui.com/generate_204</span><br><span class="line">adb shell settings put global captive_portal_https_url https://connect.rom.miui.com/generate_204</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何在shell中嵌入多行文本（配置文件）</title>
       <link href="/2020/03/21/%E5%A6%82%E4%BD%95%E5%9C%A8shell%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%EF%BC%88%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%89/"/>
       <url>/2020/03/21/%E5%A6%82%E4%BD%95%E5%9C%A8shell%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%EF%BC%88%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%89/</url>

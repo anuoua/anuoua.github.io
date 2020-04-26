@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="打开侧边栏看github哦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="https://anuoua.github.io/about/index.html">
+  <meta name="description" content="安装adb，然后打开电视机开发者模式，打开网络调试。 1234567adb connect xxx.xxx.xxx.xxxadb shell settings put global captive_portal_detection_enabled 1adb shell settings put global captive_portal_mode 1adb shell settings put g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wifi提示&quot;已连接 但无法访问互联网&quot;的解决办法">
+<meta property="og:url" content="https://anuoua.github.io/2020/04/26/wifi提示"已连接 但无法访问互联网"的解决办法/index.html">
 <meta property="og:site_name" content="anuoua的">
-<meta property="og:description" content="打开侧边栏看github哦">
+<meta property="og:description" content="安装adb，然后打开电视机开发者模式，打开网络调试。 1234567adb connect xxx.xxx.xxx.xxxadb shell settings put global captive_portal_detection_enabled 1adb shell settings put global captive_portal_mode 1adb shell settings put g">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-26T01:54:36.732Z">
+<meta property="og:updated_time" content="2020-04-26T05:50:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="打开侧边栏看github哦">
-  <link rel="canonical" href="https://anuoua.github.io/about/">
+<meta name="twitter:title" content="wifi提示&quot;已连接 但无法访问互联网&quot;的解决办法">
+<meta name="twitter:description" content="安装adb，然后打开电视机开发者模式，打开网络调试。 1234567adb connect xxx.xxx.xxx.xxxadb shell settings put global captive_portal_detection_enabled 1adb shell settings put global captive_portal_mode 1adb shell settings put g">
+  <link rel="canonical" href="https://anuoua.github.io/2020/04/26/wifi提示"已连接 但无法访问互联网"的解决办法/">
 
 
 <script id="page-configurations">
@@ -74,16 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>
-      关于 | anuoua的
-    
-  </title>
+  <title>wifi提示"已连接 但无法访问互联网"的解决办法 | anuoua的</title>
   
 
 
@@ -258,63 +255,99 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/04/26/wifi提示"已连接 但无法访问互联网"的解决办法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            wifi提示"已连接 但无法访问互联网"的解决办法
+            
 
-<h1 class="post-title" itemprop="name headline">关于
-  
+          
+        </h1>
 
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
-  
+              
+                
+              
 
-</div>
+              <time title="创建时间：2020-04-26 05:50:59" itemprop="dateCreated datePublished" datetime="2020-04-26T05:50:59+00:00">2020-04-26</time>
+            </span>
+          
 
-</header>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <p>安装adb，然后打开电视机开发者模式，打开网络调试。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adb connect xxx.xxx.xxx.xxx</span><br><span class="line">adb shell settings put global captive_portal_detection_enabled 1</span><br><span class="line">adb shell settings put global captive_portal_mode 1</span><br><span class="line">adb shell settings put global captive_portal_use_https 0</span><br><span class="line">adb shell settings put global captive_portal_server connect.rom.miui.com</span><br><span class="line">adb shell settings put global captive_portal_http_url http://connect.rom.miui.com/generate_204</span><br><span class="line">adb shell settings put global captive_portal_https_url https://connect.rom.miui.com/generate_204</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
       
-      
-      <div class="post-body">
-          <p>打开侧边栏看github哦</p>
+
+      <footer class="post-footer">
 
         
-      </div>
-      
-      
-      
-    </div>
-    
 
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/03/21/如何在shell中嵌入多行文本（配置文件）/" rel="next" title="如何在shell中嵌入多行文本（配置文件）">
+                  <i class="fa fa-chevron-left"></i> 如何在shell中嵌入多行文本（配置文件）
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
   </div>
 
 
