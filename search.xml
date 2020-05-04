@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>shield tv 8.0 系统替换默认桌面</title>
+      <link href="/2020/05/04/shield%20tv%208.0%20%E7%B3%BB%E7%BB%9F%E6%9B%BF%E6%8D%A2%E9%BB%98%E8%AE%A4%E6%A1%8C%E9%9D%A2/"/>
+      <url>/2020/05/04/shield%20tv%208.0%20%E7%B3%BB%E7%BB%9F%E6%9B%BF%E6%8D%A2%E9%BB%98%E8%AE%A4%E6%A1%8C%E9%9D%A2/</url>
+      
+        <content type="html"><![CDATA[<p>先安装launcher，atvlauncher或者HAlauncher（HALauncher，需要勾选作为默认桌面的项），不安装会导致后续无法进入桌面。</p><p>首先开启盒子的adb调试，打开设置》设备偏好设置》关于》内部版本号，多按几次确认键，打开开发者模式。</p><p>然后打开设置》设备偏好设置》开发者选项》网络调试（或者USB调试）。</p><a id="more"></a><p>然后就是在电脑上使用adb命令禁用默认桌面</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb connect xxx.xxx.xxx.xxx //  网络调试下，连接到电视机的ip地址</span><br><span class="line">adb shell</span><br><span class="line">pm disable-user --user0 com.google.android.tvlauncher  // 要恢复就把前面改成 enable-user</span><br></pre></td></tr></table></figure><p>然后就可以点击home按键试试了。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>wifi提示&quot;已连接 但无法访问互联网&quot;的解决办法</title>
       <link href="/2020/04/26/wifi%E6%8F%90%E7%A4%BA%22%E5%B7%B2%E8%BF%9E%E6%8E%A5%20%E4%BD%86%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%92%E8%81%94%E7%BD%91%22%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
       <url>/2020/04/26/wifi%E6%8F%90%E7%A4%BA%22%E5%B7%B2%E8%BF%9E%E6%8E%A5%20%E4%BD%86%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%92%E8%81%94%E7%BD%91%22%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
