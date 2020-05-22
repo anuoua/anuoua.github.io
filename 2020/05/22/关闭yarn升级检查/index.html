@@ -55,14 +55,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="anuoua的">
-<meta property="og:url" content="https://anuoua.github.io/archives/2019/08/index.html">
+  <meta name="description" content="在内网环境安装yarn使用的时候，出现yarn一直没有响应的情况。 原因是yarn安装完成会做升级检查，内网环境无法访问外网请求。 只需要关闭yarn自升级检查即可。 12npm i yarn -gyarn config set disable-self-update-check true">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux创建开机启动服务">
+<meta property="og:url" content="https://anuoua.github.io/2020/05/22/关闭yarn升级检查/index.html">
 <meta property="og:site_name" content="anuoua的">
+<meta property="og:description" content="在内网环境安装yarn使用的时候，出现yarn一直没有响应的情况。 原因是yarn安装完成会做升级检查，内网环境无法访问外网请求。 只需要关闭yarn自升级检查即可。 12npm i yarn -gyarn config set disable-self-update-check true">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-22T04:45:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="anuoua的">
-  <link rel="canonical" href="https://anuoua.github.io/archives/2019/08/">
+<meta name="twitter:title" content="Linux创建开机启动服务">
+<meta name="twitter:description" content="在内网环境安装yarn使用的时候，出现yarn一直没有响应的情况。 原因是yarn安装完成会做升级检查，内网环境无法访问外网请求。 只需要关闭yarn自升级检查即可。 12npm i yarn -gyarn config set disable-self-update-check true">
+  <link rel="canonical" href="https://anuoua.github.io/2020/05/22/关闭yarn升级检查/">
 
 
 <script id="page-configurations">
@@ -70,13 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | anuoua的</title>
+  <title>Linux创建开机启动服务 | anuoua的</title>
   
 
 
@@ -251,116 +255,102 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/05/22/关闭yarn升级检查/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
           
-        
-        <span class="collection-header">嗯..! 目前共计 19 篇日志。 继续努力。</span>
-      </div>
-      
+            Linux创建开机启动服务
+            
 
-      
+          
+        </h1>
 
-  
-  
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-  
+              
+                
+              
+
+              <time title="创建时间：2020-05-22 04:45:11" itemprop="dateCreated datePublished" datetime="2020-05-22T04:45:11+00:00">2020-05-22</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-08-11T15:01:04+00:00"
-              content="2019-08-11">
-          08-11
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/11/配置Powershell命令行代理/" itemprop="url">
-            <span itemprop="name">配置Powershell命令行代理</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-08-11T15:00:22+00:00"
-              content="2019-08-11">
-          08-11
-        </time>
-      </div>
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/11/Powershell启动脚本/" itemprop="url">
-            <span itemprop="name">Powershell启动脚本</span>
-          </a>
-        
-      </h2>
-
-    </header>
-  </article>
-
-
+      
+        <p>在内网环境安装yarn使用的时候，出现yarn一直没有响应的情况。</p>
+<p>原因是yarn安装完成会做升级检查，内网环境无法访问外网请求。</p>
+<p>只需要关闭yarn自升级检查即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i yarn -g</span><br><span class="line">yarn config <span class="built_in">set</span> <span class="built_in">disable</span>-self-update-check <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/05/04/shield tv 8.0 系统替换默认桌面/" rel="next" title="shield tv 8.0 系统替换默认桌面">
+                  <i class="fa fa-chevron-left"></i> shield tv 8.0 系统替换默认桌面
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -377,6 +367,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
