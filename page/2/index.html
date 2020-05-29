@@ -259,6 +259,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/08/11/Powershell启动脚本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/08/11/Powershell启动脚本/" class="post-title-link" itemprop="url">Powershell启动脚本</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-11 15:00:22" itemprop="dateCreated datePublished" datetime="2019-08-11T15:00:22+00:00">2019-08-11</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Linux中bash有一个启动的默认配置文件：<code>.bashrc</code>或者<code>.bash_profile</code>，自定义命令以及预配置可以写在那里，但是windows的配置文件在哪里呢？</p><p>按照微软官网的说法是按照以下的对应关系，但是实际上是不对的。</p><table>
+<thead>
+<tr>
+<th align="left">Description</th>
+<th align="left">Path</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">All Users, All Hosts</td>
+<td align="left"><code>$PsHome\Profile.ps1</code></td>
+</tr>
+<tr>
+<td align="left">All Users, Current Host</td>
+<td align="left"><code>$PsHome\Microsoft.PowerShell_profile.ps1</code></td>
+</tr>
+<tr>
+<td align="left">Current User, All Hosts</td>
+<td align="left"><code>$Home\[My ]Documents\PowerShell\Profile.ps1</code></td>
+</tr>
+<tr>
+<td align="left">Current user, Current Host</td>
+<td align="left"><code>$Home\[My ]Documents\PowerShell\ Microsoft.PowerShell_profile.ps1</code></td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/08/11/Powershell启动脚本/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/ubuntu 18.04开启bbr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -962,103 +1060,11 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2018/03/14/关于原型链/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="anuoua">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="anuoua的">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2018/03/14/关于原型链/" class="post-title-link" itemprop="url">关于原型链</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-14 15:29:00" itemprop="dateCreated datePublished" datetime="2018-03-14T15:29:00+00:00">2018-03-14</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础/" itemprop="url" rel="index">
-                    <span itemprop="name">基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a name="9f4eb5bf"></a></p><h2 id="以下这张图，基本解释了所有的原型关系"><a href="#以下这张图，基本解释了所有的原型关系" class="headerlink" title="以下这张图，基本解释了所有的原型关系"></a>以下这张图，基本解释了所有的原型关系</h2><p><img src="https://cdn.nlark.com/yuque/0/2019/png/280778/1551716465866-8a074836-eba5-48e8-9289-f961b243f2b1.png#align=left&display=inline&height=586&name=image.png&originHeight=586&originWidth=520&size=173051&status=done&width=520" alt="image.png"></p><p>核心要素是：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo()</span><br><span class="line">foo.__proto__ == foo.constructor.prototype == Foo.prototype</span><br><span class="line"></span><br><span class="line"><span class="comment">// .__proto__ 可以简单理解成 .construstor.prototype 的简写</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/03/14/关于原型链/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1103,7 +1109,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
