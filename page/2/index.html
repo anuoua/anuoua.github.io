@@ -477,8 +477,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，<strong>xshell</strong>这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是<code>[1;5A</code>和<code>[1;5B</code>，其中``是一个代表<code>esc</code>的特殊字符。复制输出的字符串，xshell工具-&gt;选项-&gt;键盘和鼠标-&gt;编辑-&gt;新建，按ctrl+up，类型选择发送字符串，粘贴刚才复制的对应字符串，完成。</p>
-
+          <p>使用xshell的时候发现tmux的pane大小只能左右调节不能上下调节，后台发现xshell不响应ctrl+up和ctrl+down快捷键，只能自己设置快捷键。</p><p>两个组合键输出的特殊字符是<code>[1;5A</code>和<code>[1;5B</code>，但是在开头还隐藏了一个代表<code>esc</code>的特殊字符<code>\033</code>。xshell工具-&gt;选项-&gt;键盘和鼠标-&gt;编辑-&gt;新建，按对应快捷键，类型选择发送字符串，粘贴以下对应的字符串，完成。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/03/04/Xshell调整tmux大小无效问题/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

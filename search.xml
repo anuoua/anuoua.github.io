@@ -164,7 +164,7 @@
       <link href="/2019/03/04/Xshell%E8%B0%83%E6%95%B4tmux%E5%A4%A7%E5%B0%8F%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98/"/>
       <url>/2019/03/04/Xshell%E8%B0%83%E6%95%B4tmux%E5%A4%A7%E5%B0%8F%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<p>由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，<strong>xshell</strong>这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是<code>[1;5A</code>和<code>[1;5B</code>，其中``是一个代表<code>esc</code>的特殊字符。复制输出的字符串，xshell工具-&gt;选项-&gt;键盘和鼠标-&gt;编辑-&gt;新建，按ctrl+up，类型选择发送字符串，粘贴刚才复制的对应字符串，完成。</p>]]></content>
+        <content type="html"><![CDATA[<p>使用xshell的时候发现tmux的pane大小只能左右调节不能上下调节，后台发现xshell不响应ctrl+up和ctrl+down快捷键，只能自己设置快捷键。</p><p>两个组合键输出的特殊字符是<code>[1;5A</code>和<code>[1;5B</code>，但是在开头还隐藏了一个代表<code>esc</code>的特殊字符<code>\033</code>。xshell工具-&gt;选项-&gt;键盘和鼠标-&gt;编辑-&gt;新建，按对应快捷键，类型选择发送字符串，粘贴以下对应的字符串，完成。</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\033[1;5A =&gt; ctrl+up</span><br><span class="line">\033[1;5B =&gt; ctrl+down</span><br></pre></td></tr></table></figure>]]></content>
       
       
       

@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，xshell这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是[1;5A和[1;5B，其中``是一个代表esc的特殊字符。复制输出的字符串，xshell工具-&amp;gt;选项-&amp;gt;键盘和鼠标-&amp;gt;编辑-&amp;gt;新建，按ctrl+up，类型">
+  <meta name="description" content="使用xshell的时候发现tmux的pane大小只能左右调节不能上下调节，后台发现xshell不响应ctrl+up和ctrl+down快捷键，只能自己设置快捷键。两个组合键输出的特殊字符是[1;5A和[1;5B，但是在开头还隐藏了一个代表esc的特殊字符\033。xshell工具-&amp;gt;选项-&amp;gt;键盘和鼠标-&amp;gt;编辑-&amp;gt;新建，按对应快捷键，类型选择发送字符串，粘贴以下对应的字符串，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xshell调整tmux大小无效问题">
 <meta property="og:url" content="https://anuoua.github.io/2019/03/04/Xshell调整tmux大小无效问题/index.html">
 <meta property="og:site_name" content="anuoua的">
-<meta property="og:description" content="由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，xshell这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是[1;5A和[1;5B，其中``是一个代表esc的特殊字符。复制输出的字符串，xshell工具-&amp;gt;选项-&amp;gt;键盘和鼠标-&amp;gt;编辑-&amp;gt;新建，按ctrl+up，类型">
+<meta property="og:description" content="使用xshell的时候发现tmux的pane大小只能左右调节不能上下调节，后台发现xshell不响应ctrl+up和ctrl+down快捷键，只能自己设置快捷键。两个组合键输出的特殊字符是[1;5A和[1;5B，但是在开头还隐藏了一个代表esc的特殊字符\033。xshell工具-&amp;gt;选项-&amp;gt;键盘和鼠标-&amp;gt;编辑-&amp;gt;新建，按对应快捷键，类型选择发送字符串，粘贴以下对应的字符串，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-04T14:05:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xshell调整tmux大小无效问题">
-<meta name="twitter:description" content="由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，xshell这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是[1;5A和[1;5B，其中``是一个代表esc的特殊字符。复制输出的字符串，xshell工具-&amp;gt;选项-&amp;gt;键盘和鼠标-&amp;gt;编辑-&amp;gt;新建，按ctrl+up，类型">
+<meta name="twitter:description" content="使用xshell的时候发现tmux的pane大小只能左右调节不能上下调节，后台发现xshell不响应ctrl+up和ctrl+down快捷键，只能自己设置快捷键。两个组合键输出的特殊字符是[1;5A和[1;5B，但是在开头还隐藏了一个代表esc的特殊字符\033。xshell工具-&amp;gt;选项-&amp;gt;键盘和鼠标-&amp;gt;编辑-&amp;gt;新建，按对应快捷键，类型选择发送字符串，粘贴以下对应的字符串，">
   <link rel="canonical" href="https://anuoua.github.io/2019/03/04/Xshell调整tmux大小无效问题/">
 
 
@@ -309,7 +309,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>由screen转tmux，使用的时候发现tmux的pane大小只能左右调节不能上下调节，各种搜索后发现是xshell的问题，<strong>xshell</strong>这个坑竟然不响应ctrl+up和ctrl+down。。。 两个组合键输出的特殊字符是<code>[1;5A</code>和<code>[1;5B</code>，其中``是一个代表<code>esc</code>的特殊字符。复制输出的字符串，xshell工具-&gt;选项-&gt;键盘和鼠标-&gt;编辑-&gt;新建，按ctrl+up，类型选择发送字符串，粘贴刚才复制的对应字符串，完成。</p>
+        <p>使用xshell的时候发现tmux的pane大小只能左右调节不能上下调节，后台发现xshell不响应ctrl+up和ctrl+down快捷键，只能自己设置快捷键。</p><p>两个组合键输出的特殊字符是<code>[1;5A</code>和<code>[1;5B</code>，但是在开头还隐藏了一个代表<code>esc</code>的特殊字符<code>\033</code>。xshell工具-&gt;选项-&gt;键盘和鼠标-&gt;编辑-&gt;新建，按对应快捷键，类型选择发送字符串，粘贴以下对应的字符串，完成。</p><a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\033[1;5A =&gt; ctrl+up</span><br><span class="line">\033[1;5B =&gt; ctrl+down</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
