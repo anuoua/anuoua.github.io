@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>reflect-metadata原理</title>
+      <link href="/2020/07/09/reflect-metadata%E5%8E%9F%E7%90%86/"/>
+      <url>/2020/07/09/reflect-metadata%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近看依赖注入控制反转，javascript的实现借助了inversifyjs，而inversifyjs又用到了reflect-medadata，简单的研究了下reflect-metadata内部结构，想看看它是怎么存储元数据的。</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>简单看一个api</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.defineMetadata(metadataKey, metadataValue, target, propertyKey);</span><br></pre></td></tr></table></figure><a id="more"></a><p>它内部定义了一个weakmap，用于和target关联，创建这个weakmap的主要流程</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Reflect</span>.defineMetadata(metadataKey, metadataValue, target, propertyKey);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> weakmap = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> metadata = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line"></span><br><span class="line">metadata.set(metadataKey, metadataValue)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> metadataMap = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line"></span><br><span class="line">metadataMap.set(propertyKey, metadata)</span><br><span class="line"></span><br><span class="line">weakmap.set(target, metadataMap)</span><br></pre></td></tr></table></figure><p>分为三层map，每一个target通过weakmap映射到一个metadataMap，metadataMap内部存储了target对象上所有键的元数据（metadata），metadata也是一个map，里面映射metadataKey =&gt; metadataValue，大致如此。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Flutter的坑</title>
       <link href="/2020/06/08/Flutter%E7%9A%84%E5%9D%91/"/>
       <url>/2020/06/08/Flutter%E7%9A%84%E5%9D%91/</url>
