@@ -259,6 +259,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/02/28/vscode远程开发的代理配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2020/02/28/vscode远程开发的代理配置/" class="post-title-link" itemprop="url">vscode远程开发的代理配置</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-28 02:43:11 / 修改时间：02:53:11" itemprop="dateCreated datePublished" datetime="2020-02-28T02:43:11+00:00">2020-02-28</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>去年vscode就支持了远程开发，通过ssh连接到服务器，就像在本地写代码一样，实在是太爽了。</p><p>但是有一个问题是，vscode的ssh无法通过代理访问，官方文档上的方法需要一台<code>跳板机</code>来完成。</p><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jump box with public IP address</span></span><br><span class="line">Host jump-box</span><br><span class="line">    HostName 52.179.157.97</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/jumpbox</span><br><span class="line"></span><br><span class="line"><span class="comment"># Target machine with private IP address</span></span><br><span class="line">Host target-box</span><br><span class="line">    HostName &lt;IP address of target&gt;</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/target</span><br><span class="line">    ProxyCommand ssh -q -W %h:%p jump-box</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/02/28/vscode远程开发的代理配置/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/12/19/自建KMS服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -984,103 +1063,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2019/03/04/Linux无损调整分区大小/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="anuoua">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="anuoua的">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/03/04/Linux无损调整分区大小/" class="post-title-link" itemprop="url">Linux无损调整分区大小</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-04 08:25:06" itemprop="dateCreated datePublished" datetime="2019-03-04T08:25:06+00:00">2019-03-04</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a name="c931653c"></a></p><h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>500G 硬盘</p><pre><code>100MB `boot`分区 |8G `swap`分区 |450G `/`分区</code></pre><p>我需要将<code>/home</code>分区单独提取一个分区出来，即变成</p><pre><code>100MB `boot`分区 |8G `swap`分区 |100G `/`分区 |350G `/home`分区</code></pre><p><a name="52b36576"></a></p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li>sudo e2fsck -fy /dev/sda3 // f 是表示检查，y表示一直确认，直到修复完</li>
-<li>sudo resize2fs /dev/sda3 100G  //将文件系统调整到50G（不太明白文件系统大小和分区大小的关系）</li>
-<li>sudo fdisk /dev/sda  // 使用fdisk进行分区</li>
-<li>首先输入p，查看要调整分区（sda3）的start序号（重要）</li>
-<li>输入 <code>d</code> 删除要sda3，选择3</li>
-<li>输入 <code>n</code> 添加一个主分区，分区号选择3</li>
-<li>选择<code>start</code>地址，就是刚才查看的地址（一般不用修改，默认就是刚才的值）</li>
-<li>选择分区容量，输入<code>+100G</code></li>
-<li>然后再新建一个分区，输入n，选择p（主分区），选择默认起点，再选择默认终点</li>
-<li>按w保存分区表<ol>
-<li>这里有可能会报错，什么device被占用之类的错误</li>
-<li>使用 <code>partprobe /dev/sda</code>命令重载/dev/sda 重载分区表，（命令成功界面没有显示）</li>
-</ol>
-</li>
-<li><code>sudo e2fsck -fy /dev/sda3</code> 修复sda3分区</li>
-<li><code>sudo resize2fs /dev/sda3</code> 检查一下有没有问题</li>
-<li>sda3分区已经没有问题了，数据全部都保留着。</li>
-<li>格式化sda4 <code>sudo mkfs.ext4 /dev/sda4</code></li>
-<li>然后就是迁移所有<code>/home</code>数据到<code>sda4</code></li>
-<li>在fstab中添加一行  <code>UUID=xxxxxxxxxxxxxxx /home ext4 defaults 0 0</code></li>
-<li>开机后使用<code>sudo chown -R username:username /home/fan</code>，否则由于权限问题导致无法登录</li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/03/04/Linux无损调整分区大小/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1130,7 +1112,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

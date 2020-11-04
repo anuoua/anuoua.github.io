@@ -259,6 +259,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/11/04/Observable 和 Subject 的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2020/11/04/Observable 和 Subject 的区别/" class="post-title-link" itemprop="url">Observable 和 Subject 的区别</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-11-04 14:53:11" itemprop="dateCreated datePublished" datetime="2020-11-04T14:53:11+00:00">2020-11-04</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>根据rxjs官网的说法，Observable是冷数据流，Subject是热数据流。</p><p>我的理解，从数据生成角度</p><ul>
+<li>Observable： 数据生成者，数据产生在内部</li>
+<li>Subject：数据生成者和消费者，可以从外部接收数据</li>
+</ul><p>举个例子</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Observable, Subject &#125; <span class="keyword">from</span> <span class="string">'rxjs'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> observe$ = Observable.of(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">observe$.subscribe(<span class="function">(<span class="params">a</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(a) &#125;) <span class="comment">// 1, 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> subject = <span class="keyword">new</span> Subject()</span><br><span class="line">subject.subscribe(<span class="function">(<span class="params">a</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(a) &#125;) <span class="comment">// 1, 2</span></span><br><span class="line">subject.next(<span class="number">1</span>)</span><br><span class="line">subject.next(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/11/04/Observable 和 Subject 的区别/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/07/16/koa-compose原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -920,85 +998,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/02/28/vscode远程开发的代理配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="anuoua">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="anuoua的">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2020/02/28/vscode远程开发的代理配置/" class="post-title-link" itemprop="url">vscode远程开发的代理配置</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-02-28 02:43:11 / 修改时间：02:53:11" itemprop="dateCreated datePublished" datetime="2020-02-28T02:43:11+00:00">2020-02-28</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>去年vscode就支持了远程开发，通过ssh连接到服务器，就像在本地写代码一样，实在是太爽了。</p><p>但是有一个问题是，vscode的ssh无法通过代理访问，官方文档上的方法需要一台<code>跳板机</code>来完成。</p><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Jump box with public IP address</span></span><br><span class="line">Host jump-box</span><br><span class="line">    HostName 52.179.157.97</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/jumpbox</span><br><span class="line"></span><br><span class="line"><span class="comment"># Target machine with private IP address</span></span><br><span class="line">Host target-box</span><br><span class="line">    HostName &lt;IP address of target&gt;</span><br><span class="line">    User sana</span><br><span class="line">    IdentityFile ~/.ssh/target</span><br><span class="line">    ProxyCommand ssh -q -W %h:%p jump-box</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/02/28/vscode远程开发的代理配置/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1048,7 +1047,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
