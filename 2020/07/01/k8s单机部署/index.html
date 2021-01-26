@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.2" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.2">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"right","display":"always","offset":12,"onmobile":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="背景需要一个方便部署应用的平台，搜索了以后选择主流的k8s。k8s有很多安装方式，原生官方网站的安装方式很麻烦，组件众多，大多需要科学上网。于是开始寻找一种方便的安装方式，而且需要支持单机部署（master和worker节点在一个机器上），找到几个靠谱的方案。 minikube：它的好处是安装足够方便，指定docker国内镜像即可一路绿灯，安装完成。但是缺点是基本只能单机学习用，其master是安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="k8s单机部署">
+<meta property="og:url" content="https://anuoua.github.io/2020/07/01/k8s单机部署/index.html">
+<meta property="og:site_name" content="anuoua的">
+<meta property="og:description" content="背景需要一个方便部署应用的平台，搜索了以后选择主流的k8s。k8s有很多安装方式，原生官方网站的安装方式很麻烦，组件众多，大多需要科学上网。于是开始寻找一种方便的安装方式，而且需要支持单机部署（master和worker节点在一个机器上），找到几个靠谱的方案。 minikube：它的好处是安装足够方便，指定docker国内镜像即可一路绿灯，安装完成。但是缺点是基本只能单机学习用，其master是安">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-01T14:53:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="k8s单机部署">
+<meta name="twitter:description" content="背景需要一个方便部署应用的平台，搜索了以后选择主流的k8s。k8s有很多安装方式，原生官方网站的安装方式很麻烦，组件众多，大多需要科学上网。于是开始寻找一种方便的安装方式，而且需要支持单机部署（master和worker节点在一个机器上），找到几个靠谱的方案。 minikube：它的好处是安装足够方便，指定docker国内镜像即可一路绿灯，安装完成。但是缺点是基本只能单机学习用，其master是安">
+  <link rel="canonical" href="https://anuoua.github.io/2020/07/01/k8s单机部署/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>k8s单机部署 | anuoua的</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">anuoua的</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/07/01/k8s单机部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            k8s单机部署
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-07-01 14:53:11" itemprop="dateCreated datePublished" datetime="2020-07-01T14:53:11+00:00">2020-07-01</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>需要一个方便部署应用的平台，搜索了以后选择主流的k8s。</p><p>k8s有很多安装方式，原生官方网站的安装方式很麻烦，组件众多，大多需要科学上网。于是开始寻找一种方便的安装方式，而且需要支持单机部署（master和worker节点在一个机器上），找到几个靠谱的方案。</p><ul>
+<li><p><strong>minikube</strong>：它的好处是安装足够方便，指定docker国内镜像即可一路绿灯，安装完成。但是缺点是基本只能单机学习用，其master是安装在docker中的，对外发布的时候，不能像原生安装那样，设定一个port就能让集群外的人访问，只能本机访问，要对外发布的话，就有很大的成本，比较适合个人学习使用。</p>
+</li>
+<li><p><strong>microk8s&amp;k3s</strong>：这两个都是轻量级的k8s方案，安装较方便，内置了很多常用的插件和服务。但是同样的会遇到很多问题，不少问题都是他们自己封装的时候特有的，不方便排查。同时这两个都强制使用containerd作为驱动，作为容器标准化的产物，containerd相比少了一层交互，但是命令行完全没有docker用的舒服，同时令人费解的toml配置，很令人劝退。</p>
+</li>
+<li><p><strong>部署工具安装</strong>：这是最终使用的方案，kubeadm部署工具，因为microk8s和k3s也无法摆脱科学上网，同时还增加了更多的问题。那为什么不使用官网的方式安装呢？事实证明按照官网安装是坑最少的，官网中文教程非常详细，而且有各种国内源加速，问题解决方法容易搜索到。</p>
+</li>
+</ul><a id="more"></a>
+
+
+<h2 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h2><p>官网：<a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/install-kubeadm/" target="_blank" rel="noopener">部署工具安装</a></p>
+<p>官网教程非常详细，以下步骤中的几点需要注意：</p>
+<h3 id="准备开始"><a href="#准备开始" class="headerlink" title="准备开始"></a>准备开始</h3><p>这部分最后一项</p>
+<blockquote>
+<p>禁用交换分区。为了保证 kubelet 正常工作，您 必须 禁用交换分区。</p>
+</blockquote>
+<p>编辑<code>/etc/fstab</code>文件，在swap那行前面加#号注释掉，操作完最好重启。</p>
+<h3 id="确保每个节点上-MAC-地址和-product-uuid-的唯一性"><a href="#确保每个节点上-MAC-地址和-product-uuid-的唯一性" class="headerlink" title="确保每个节点上 MAC 地址和 product_uuid 的唯一性"></a>确保每个节点上 MAC 地址和 product_uuid 的唯一性</h3><p>一般无问题</p>
+<h3 id="检查网络适配器"><a href="#检查网络适配器" class="headerlink" title="检查网络适配器"></a>检查网络适配器</h3><p>一般无问题</p>
+<h3 id="确保-iptables-工具不使用-nftables-后端"><a href="#确保-iptables-工具不使用-nftables-后端" class="headerlink" title="确保 iptables 工具不使用 nftables 后端"></a>确保 iptables 工具不使用 nftables 后端</h3><p>一般无问题</p>
+<h3 id="检查所需端口"><a href="#检查所需端口" class="headerlink" title="检查所需端口"></a>检查所需端口</h3><p>如果有端口占用的，需要kill掉进程。一般新机器部署的话，都是正常的。</p>
+<h3 id="安装-runtime"><a href="#安装-runtime" class="headerlink" title="安装 runtime"></a>安装 runtime</h3><p>如果机器已经安装了docker，那么也必须看”CRI 安装指南”这个连接里面的内容。</p>
+<p>安装docker-ce使用国内云厂商的镜像可以快速安装。</p>
+<p>配置docker的daemon.json文件非常重要，否则会导致后面kubelet服务挂掉。</p>
+<h3 id="安装-kubeadm、kubelet-和-kubectl"><a href="#安装-kubeadm、kubelet-和-kubectl" class="headerlink" title="安装 kubeadm、kubelet 和 kubectl"></a>安装 kubeadm、kubelet 和 kubectl</h3><p>这几个工具国内云厂商有镜像可以直接用，可以去开源镜像站搜索kubernetes镜像，如果不行就换一个，有的厂商可能更新不及时。同时不要忘记这个步骤中设置的参数。</p>
+<h3 id="在控制平面节点上配置-kubelet-使用的-cgroup-驱动程序"><a href="#在控制平面节点上配置-kubelet-使用的-cgroup-驱动程序" class="headerlink" title="在控制平面节点上配置 kubelet 使用的 cgroup 驱动程序"></a>在控制平面节点上配置 kubelet 使用的 cgroup 驱动程序</h3><p>使用docker的话可以跳过。马上尝试kubeadm部署。</p>
+<h3 id="运行kubeadm"><a href="#运行kubeadm" class="headerlink" title="运行kubeadm"></a>运行kubeadm</h3><p>先不要运行kubeadm init，因为直接运行等了很久会报错，显示无法pull一些docker镜像。这些镜像来自<code>k8s.gcr.io</code>，我们用阿里云的镜像地址<code>registry.aliyuncs.com/google_containers</code>。</p>
+<p>首先列出kubeadm需要的镜像列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config images list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例如这些</span></span><br><span class="line"><span class="comment"># k8s.gcr.io/kube-apiserver:v1.19.4</span></span><br><span class="line"><span class="comment"># k8s.gcr.io/kube-controller-manager:v1.19.4</span></span><br><span class="line"><span class="comment"># k8s.gcr.io/kube-scheduler:v1.19.4</span></span><br><span class="line"><span class="comment"># k8s.gcr.io/kube-proxy:v1.19.4</span></span><br><span class="line"><span class="comment"># k8s.gcr.io/pause:3.2</span></span><br><span class="line"><span class="comment"># k8s.gcr.io/etcd:3.4.13-0</span></span><br><span class="line"><span class="comment"># k8s.gcr.io/coredns:1.7.0</span></span><br></pre></td></tr></table></figure>
+
+<p>然后把<code>k8s.gcr.io</code>替换成<code>registry.aliyuncs.com/google_containers</code>后统统pull到本地，接着通过docker tag命令一个一个再改成原来的名字，即<code>k8s.gcr.io/xxx:xxx</code>这样的形式。这样就可以直接跳过kubeadm自己下载镜像的过程了。同理，后面遇到的镜像问题也可以用同样的方式解决，先下载好国内镜像，然后改名。docker拉取镜像走代理的话，<a href="#docker代理问题">#docker代理问题</a></p>
+<p>这里需要我们预先启用kubelet服务<code>systemctl enable kubelet</code>。</p>
+<p>然后就可以运行kubeadm init了，不出意外的话，可以直接走到底完成安装。完成安装后注意显示出来的信息，这里面会包含一些设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="variable">$HOME</span>/.kube</span><br><span class="line">sudo cp -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</span><br><span class="line">sudo chown $(id -u):$(id -g) <span class="variable">$HOME</span>/.kube/config</span><br></pre></td></tr></table></figure>
+
+<p>按照提示操作，然后运行一下<code>kubectl get pods --all-namespaces</code>命令，看看是否大部分都启动了（running状态），除了dns相关的pod，应该都跑起来了，意味着kubeadm init成功。</p>
+<p>dns相关的pod需要网络插件安装后才能启动。</p>
+<p>那么如果中途失败了怎么办，很简单，运行kubeadm reset，手动删除<code>$HOME/.kube/</code>文件夹（重要，reset后会提示你删除），然后重启机器，按照流程重新来一遍，直到完全成功。</p>
+<h2 id="安装网络插件flannel"><a href="#安装网络插件flannel" class="headerlink" title="安装网络插件flannel"></a>安装网络插件flannel</h2><p><a href="https://github.com/coreos/flannel" target="_blank" rel="noopener">flannel</a>可以直接这样安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span><br></pre></td></tr></table></figure>
+
+<p>网络不行无法直接访问的话，先浏览器访问<code>https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</code>复制文本内容到本地，然后运行<code>kubectl apply -f kube-flannel.yml</code>安装。</p>
+<p>利用<code>kubectl get pods --all-namespaces</code>查看pod状态，发现flannel的pod起不来。需要修改<code>/etc/kubernetes/manifests/kube-controller-manager.yaml</code>，在command中添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--allocate-node-cidrs=<span class="literal">true</span></span><br><span class="line">--cluster-cidr=10.244.0.0/16</span><br></pre></td></tr></table></figure>
+
+<p>重启kubelet</p>
+<p>然后重新部署flannel，过一会儿flannel起来，再查看<code>kubectl get pods --all-namespaces</code>，发现所有的pod都起来了。</p>
+<h2 id="安装kubernetes-dashboard"><a href="#安装kubernetes-dashboard" class="headerlink" title="安装kubernetes-dashboard"></a>安装kubernetes-dashboard</h2><p><a href="https://github.com/kubernetes/dashboard" target="_blank" rel="noopener">kubenetes-dashboard</a>和上面差不多的安装方式，不多讲了。</p>
+<p>安装完之后，利用default命名空间下的default账户的token访问网页会有问题，默认的default用户是没有权限查看整个集群的状态的。需要添加权限。</p>
+<p>创建default-clusteradmin.yaml。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">bind-default-to-cluster-admin</span></span><br><span class="line"><span class="attr">roleRef:</span></span><br><span class="line">  <span class="attr">apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterRole</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">cluster-admin</span></span><br><span class="line"><span class="attr">subjects:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">kind:</span> <span class="string">ServiceAccount</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br></pre></td></tr></table></figure>
+
+<p>部署<code>kubectl apply -f default-clusteradmin.yaml</code>。</p>
+<h3 id="单节点，设置master节点也可以运行Pod"><a href="#单节点，设置master节点也可以运行Pod" class="headerlink" title="单节点，设置master节点也可以运行Pod"></a>单节点，设置master节点也可以运行Pod</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint nodes --all node-role.kubernetes.io/master-</span><br></pre></td></tr></table></figure>
+
+<p>至此，全部完成。</p>
+<h2 id="docker代理问题"><a href="#docker代理问题" class="headerlink" title="docker代理问题"></a>docker代理问题</h2><p>docker如何走代理拉镜像？首先docker是不会走系统代理信息的，也就是在环境变量中设置http(s)_proxy是无效的，需要按照以下步骤操作。</p>
+<ol>
+<li>创建systemd内的文件夹</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/systemd/system/docker.service.d</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>用以下的格式，创建一个文件<code>/etc/systemd/system/docker.service.d/http-proxy.conf</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">Environment=<span class="string">"HTTP_PROXY=http://proxy.example.com:80"</span></span><br><span class="line">Environment=<span class="string">"HTTPS_PROXY=https://proxy.example.com:443"</span></span><br><span class="line">Environment=<span class="string">"NO_PROXY=localhost,127.0.0.1,docker-registry.example.com,.corp"</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>重启docker服务，即可应用代理。</li>
+</ol>
+<h2 id="k8s的镜像"><a href="#k8s的镜像" class="headerlink" title="k8s的镜像"></a>k8s的镜像</h2><ul>
+<li>k8s.gcr.io: registry.aliyuncs.com/google_containers</li>
+<li>gcr.io: registry.aliyuncs.com/google_containers</li>
+<li>dockerhub: 去阿里云注册一个。</li>
+<li>quray.io（安装flannel要用）：国内可以直接访问。</li>
+</ul>
+<p>gcr.io/k8s.gcr.io 这两是兄弟。</p>
+<h2 id="完"><a href="#完" class="headerlink" title="完"></a>完</h2>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/06/08/Flutter的坑/" rel="next" title="Flutter的坑">
+                  <i class="fa fa-chevron-left"></i> Flutter的坑
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/07/09/reflect-metadata原理/" rel="prev" title="reflect-metadata原理">
+                  reflect-metadata原理 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装过程"><span class="nav-number">2.</span> <span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备开始"><span class="nav-number">2.1.</span> <span class="nav-text">准备开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确保每个节点上-MAC-地址和-product-uuid-的唯一性"><span class="nav-number">2.2.</span> <span class="nav-text">确保每个节点上 MAC 地址和 product_uuid 的唯一性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查网络适配器"><span class="nav-number">2.3.</span> <span class="nav-text">检查网络适配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确保-iptables-工具不使用-nftables-后端"><span class="nav-number">2.4.</span> <span class="nav-text">确保 iptables 工具不使用 nftables 后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查所需端口"><span class="nav-number">2.5.</span> <span class="nav-text">检查所需端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-runtime"><span class="nav-number">2.6.</span> <span class="nav-text">安装 runtime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-kubeadm、kubelet-和-kubectl"><span class="nav-number">2.7.</span> <span class="nav-text">安装 kubeadm、kubelet 和 kubectl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在控制平面节点上配置-kubelet-使用的-cgroup-驱动程序"><span class="nav-number">2.8.</span> <span class="nav-text">在控制平面节点上配置 kubelet 使用的 cgroup 驱动程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行kubeadm"><span class="nav-number">2.9.</span> <span class="nav-text">运行kubeadm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装网络插件flannel"><span class="nav-number">3.</span> <span class="nav-text">安装网络插件flannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装kubernetes-dashboard"><span class="nav-number">4.</span> <span class="nav-text">安装kubernetes-dashboard</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单节点，设置master节点也可以运行Pod"><span class="nav-number">4.1.</span> <span class="nav-text">单节点，设置master节点也可以运行Pod</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker代理问题"><span class="nav-number">5.</span> <span class="nav-text">docker代理问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k8s的镜像"><span class="nav-number">6.</span> <span class="nav-text">k8s的镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完"><span class="nav-number">7.</span> <span class="nav-text">完</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">anuoua</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/anuoua" title="GitHub &rarr; https://github.com/anuoua" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">anuoua</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+<script src="/js/utils.js?v=7.4.2"></script>
+<script src="/js/schemes/pisces.js?v=7.4.2"></script>
+<script src="/js/next-boot.js?v=7.4.2"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.2"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

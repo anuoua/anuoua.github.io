@@ -487,6 +487,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/07/01/k8s单机部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2020/07/01/k8s单机部署/" class="post-title-link" itemprop="url">k8s单机部署</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-07-01 14:53:11" itemprop="dateCreated datePublished" datetime="2020-07-01T14:53:11+00:00">2020-07-01</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>需要一个方便部署应用的平台，搜索了以后选择主流的k8s。</p><p>k8s有很多安装方式，原生官方网站的安装方式很麻烦，组件众多，大多需要科学上网。于是开始寻找一种方便的安装方式，而且需要支持单机部署（master和worker节点在一个机器上），找到几个靠谱的方案。</p><ul>
+<li><p><strong>minikube</strong>：它的好处是安装足够方便，指定docker国内镜像即可一路绿灯，安装完成。但是缺点是基本只能单机学习用，其master是安装在docker中的，对外发布的时候，不能像原生安装那样，设定一个port就能让集群外的人访问，只能本机访问，要对外发布的话，就有很大的成本，比较适合个人学习使用。</p>
+</li>
+<li><p><strong>microk8s&amp;k3s</strong>：这两个都是轻量级的k8s方案，安装较方便，内置了很多常用的插件和服务。但是同样的会遇到很多问题，不少问题都是他们自己封装的时候特有的，不方便排查。同时这两个都强制使用containerd作为驱动，作为容器标准化的产物，containerd相比少了一层交互，但是命令行完全没有docker用的舒服，同时令人费解的toml配置，很令人劝退。</p>
+</li>
+<li><p><strong>部署工具安装</strong>：这是最终使用的方案，kubeadm部署工具，因为microk8s和k3s也无法摆脱科学上网，同时还增加了更多的问题。那为什么不使用官网的方式安装呢？事实证明按照官网安装是坑最少的，官网中文教程非常详细，而且有各种国内源加速，问题解决方法容易搜索到。</p>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/07/01/k8s单机部署/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/06/08/Flutter的坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -923,81 +1005,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/03/21/如何在shell中嵌入多行文本（配置文件）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="anuoua">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="anuoua的">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2020/03/21/如何在shell中嵌入多行文本（配置文件）/" class="post-title-link" itemprop="url">如何在shell中嵌入多行文本（配置文件）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-03-21 02:20:11" itemprop="dateCreated datePublished" datetime="2020-03-21T02:20:11+00:00">2020-03-21</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://stackoverflow.com/questions/23929235/multi-line-string-with-extra-space-preserved-indentation" target="_blank" rel="noopener">stackoverflow 链接</a></p><h2 id="answer"><a href="#answer" class="headerlink" title="answer"></a>answer</h2><p>Heredoc sounds more convenient for this purpose. It is used to send multiple commands to a command interpreter program like ex or cat</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/03/21/如何在shell中嵌入多行文本（配置文件）/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1047,7 +1054,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1112,7 +1119,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
