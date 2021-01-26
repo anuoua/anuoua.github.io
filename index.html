@@ -337,6 +337,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/08/01/初识docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2020/08/01/初识docker/" class="post-title-link" itemprop="url">初识docker</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-08-01 14:53:11" itemprop="dateCreated datePublished" datetime="2020-08-01T14:53:11+00:00">2020-08-01</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="初识docker"><a href="#初识docker" class="headerlink" title="初识docker"></a>初识docker</h1><p>docker这么火，必须要了解一下了。</p><p>之前在别的部门接了个前端项目，做了个需求，是后台打印pdf文件，导出。找了很多方案，决定使用puppeteer无头chrome作为后端打印机用。本地开发没什么问题，但是到了线上问题就大了，在线编译无法通过，编译环境是centos环境，无法下载chrome，chrome的依赖也没有。做了很多额外的恶心的东西在里面。这时候，想到如果开发环境和部署环境一样的话，多好，完全没有这种问题。而docker就可以解决这些问题。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/08/01/初识docker/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/07/16/koa-compose原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -936,75 +1011,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/04/26/wifi提示"已连接 但无法访问互联网"的解决办法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="anuoua">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="anuoua的">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2020/04/26/wifi提示"已连接 但无法访问互联网"的解决办法/" class="post-title-link" itemprop="url">wifi提示"已连接 但无法访问互联网"的解决办法</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-04-26 05:50:59" itemprop="dateCreated datePublished" datetime="2020-04-26T05:50:59+00:00">2020-04-26</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>安装adb，然后打开电视机开发者模式，打开网络调试。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adb connect xxx.xxx.xxx.xxx</span><br><span class="line">adb shell settings put global captive_portal_detection_enabled 1</span><br><span class="line">adb shell settings put global captive_portal_mode 1</span><br><span class="line">adb shell settings put global captive_portal_use_https 0</span><br><span class="line">adb shell settings put global captive_portal_server connect.rom.miui.com</span><br><span class="line">adb shell settings put global captive_portal_http_url http://connect.rom.miui.com/generate_204</span><br><span class="line">adb shell settings put global captive_portal_https_url https://connect.rom.miui.com/generate_204</span><br></pre></td></tr></table></figure>
-
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1054,7 +1060,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
