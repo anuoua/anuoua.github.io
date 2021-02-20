@@ -259,7 +259,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/04/26/wifi提示"已连接 但无法访问互联网"的解决办法/">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2020/04/26/shield tv 已连接 但无法访问互联网的解决办法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="anuoua">
@@ -274,7 +274,7 @@
         <h1 class="post-title" itemprop="name headline">
           
             
-            <a href="/2020/04/26/wifi提示"已连接 但无法访问互联网"的解决办法/" class="post-title-link" itemprop="url">wifi提示"已连接 但无法访问互联网"的解决办法</a>
+            <a href="/2020/04/26/shield tv 已连接 但无法访问互联网的解决办法/" class="post-title-link" itemprop="url">shield tv 无法访问互联网的解决办法</a>
           
         </h1>
 
@@ -304,10 +304,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>安装adb，然后打开电视机开发者模式，打开网络调试。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adb connect xxx.xxx.xxx.xxx</span><br><span class="line">adb shell settings put global captive_portal_detection_enabled 1</span><br><span class="line">adb shell settings put global captive_portal_mode 1</span><br><span class="line">adb shell settings put global captive_portal_use_https 0</span><br><span class="line">adb shell settings put global captive_portal_server connect.rom.miui.com</span><br><span class="line">adb shell settings put global captive_portal_http_url http://connect.rom.miui.com/generate_204</span><br><span class="line">adb shell settings put global captive_portal_https_url https://connect.rom.miui.com/generate_204</span><br></pre></td></tr></table></figure>
-
-
+          <p>这个问题一般有两个原因，也分两种情况，一种是可以上网，一种是无法上网，我们可以利用adb工具进行设置，设置之前请打开网络调试。</p><h2 id="可以上网"><a href="#可以上网" class="headerlink" title="可以上网"></a>可以上网</h2><p>这种情况下只需要通过如下方法去掉提示即可，原因是wifi检测是否可以访问网络，需要访问国外网址，这个地址国内不通，我们替换成国内网址就行。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adb connect xxx.xxx.xxx.xxx</span><br><span class="line">adb shell settings put global captive_portal_detection_enabled 1</span><br><span class="line">adb shell settings put global captive_portal_mode 1</span><br><span class="line">adb shell settings put global captive_portal_use_https 0</span><br><span class="line">adb shell settings put global captive_portal_server connect.rom.miui.com</span><br><span class="line">adb shell settings put global captive_portal_http_url http://connect.rom.miui.com/generate_204</span><br><span class="line">adb shell settings put global captive_portal_https_url https://connect.rom.miui.com/generate_204</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/04/26/shield tv 已连接 但无法访问互联网的解决办法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
