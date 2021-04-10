@@ -348,7 +348,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --webroot -w /var/www/html -d www.example.com</span><br><span class="line"><span class="meta">#</span> -d 指定申请的域名，可以写多个</span><br><span class="line"><span class="meta">#</span> -w 指定静态服务的根目录，在nginx中默认是/var/www/html</span><br></pre></td></tr></table></figure>
 
 <p>可以到/etc/letsencrypt/live/中查看已经申请到的证书</p>
-<p>两个证书cert.pem fullchain.pem，可以用在nginx和科学上网，自行配置即可。</p>
+<p>两个证书key: privkey.pem，cert: fullchain.pem，可以用在nginx和科学上网，自行配置即可。</p>
 <h3 id="自动续签"><a href="#自动续签" class="headerlink" title="自动续签"></a>自动续签</h3><p>certbot的更新证书命令，这个命令会自动判断是否需要更新，如果没有满足条件，会跳过更新。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot renew --pre-hook "service nginx stop" --post-hook "service nginx start"</span><br></pre></td></tr></table></figure>
 
