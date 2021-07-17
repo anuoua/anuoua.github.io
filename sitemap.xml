@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://anuoua.github.io/2021/07/17/microk8s%20kubelet%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/</loc>
+    
+    <lastmod>2021-07-17T10:39:30.287Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://anuoua.github.io/about/index.html</loc>
     
-    <lastmod>2021-05-22T16:24:38.635Z</lastmod>
+    <lastmod>2021-07-17T10:39:30.287Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://anuoua.github.io/categories/index.html</loc>
     
-    <lastmod>2021-05-22T16:24:38.635Z</lastmod>
+    <lastmod>2021-07-17T10:39:30.287Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://anuoua.github.io/tags/index.html</loc>
     
-    <lastmod>2021-05-22T16:24:38.635Z</lastmod>
+    <lastmod>2021-07-17T10:39:30.287Z</lastmod>
     
   </url>
   
