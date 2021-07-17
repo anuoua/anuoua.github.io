@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title></title>
+      <title>microk8s kubelet自动补全</title>
       <link href="/2021/07/17/microk8s%20kubelet%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/"/>
       <url>/2021/07/17/microk8s%20kubelet%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/</url>
       
-        <content type="html"><![CDATA[<hr><p>title: microk8s kubelet自动补全<br>date: 2021-07-17 22:53:11 +0800<br>updated: 2020-07-17 22:53:11 +0800<br>tags: []  </p><h2 id="categories"><a href="#categories" class="headerlink" title="categories:   "></a>categories:   </h2><p>原生kubectl，在.bashrc中加入</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(kubectl completion bash)</span><br></pre></td></tr></table></figure><a id="more"></a><p>microk8s自带的kubectl，需要先设置别名</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias kubectl=microk8s.kubectl</span><br><span class="line">source &lt;(microk8s.kubectl completion bash)</span><br></pre></td></tr></table></figure><p>完</p>]]></content>
+        <content type="html"><![CDATA[<p>原生kubectl，在.bashrc中加入</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(kubectl completion bash)</span><br></pre></td></tr></table></figure><p>microk8s自带的kubectl，需要先设置别名</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias kubectl=microk8s.kubectl</span><br><span class="line">source &lt;(microk8s.kubectl completion bash)</span><br></pre></td></tr></table></figure><a id="more"></a><p>完</p>]]></content>
       
       
       
