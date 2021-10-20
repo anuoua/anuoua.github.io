@@ -350,14 +350,14 @@
 <p>可以到/etc/letsencrypt/live/中查看已经申请到的证书</p>
 <p>两个证书key: privkey.pem，cert: fullchain.pem，可以用在nginx和科学上网，自行配置即可。</p>
 <h3 id="自动续签"><a href="#自动续签" class="headerlink" title="自动续签"></a>自动续签</h3><p>certbot的更新证书命令，这个命令会自动判断是否需要更新，如果没有满足条件，会跳过更新。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot renew --pre-hook "service nginx stop" --post-hook "service nginx start"</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot renew --cert-name xxx.xxx.com --post-hook "systemctl restart nginx &amp;&amp; systemctl restart ..."</span><br></pre></td></tr></table></figure>
 
 <p>这个命令带有两个hook，可以做一些特殊的操作，比如重启nginx或者重启科学上网服务。</p>
 <p>如果要做到自动续签，就要借助crontab，这个工具是linux用来运行定时任务的。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e # 选择vim编辑定时任务，一行一个定时任务。</span><br></pre></td></tr></table></figure>
 
 <p>它的格式</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 */7 * * certbot renew --post-hook "xxx xxx.."</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 */7 * * certbot renew --cert-name xxx.xxx.com --post-hook "systemctl restart nginx &amp;&amp; systemctl restart ..."</span><br></pre></td></tr></table></figure>
 
 <p>上面命令表示每隔7天凌晨3点执行证书更新操作，如果需要其他更新周期的话，可以查看crontab文档。</p>
 <p>这样就能实现自动续签ssl证书，永久使用，除非letsencrypt完蛋。</p>
