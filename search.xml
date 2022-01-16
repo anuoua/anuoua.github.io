@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测显示器的问题</title>
+      <link href="/2022/01/16/%E8%A7%A3%E5%86%B3%20macbook%20m1%20macOS%20%E5%A4%96%E6%8E%A5%E6%98%BE%E7%A4%BA%E5%99%A8%E5%90%88%E4%B8%8A%E7%9B%96%E5%AD%90%E9%BB%91%E5%B1%8F%E6%88%96%E8%80%85%E7%B3%BB%E7%BB%9F%E6%B2%A1%E6%B3%95%E6%A3%80%E6%B5%8B%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/01/16/%E8%A7%A3%E5%86%B3%20macbook%20m1%20macOS%20%E5%A4%96%E6%8E%A5%E6%98%BE%E7%A4%BA%E5%99%A8%E5%90%88%E4%B8%8A%E7%9B%96%E5%AD%90%E9%BB%91%E5%B1%8F%E6%88%96%E8%80%85%E7%B3%BB%E7%BB%9F%E6%B2%A1%E6%B3%95%E6%A3%80%E6%B5%8B%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>每当我通过扩展坞外接显示器，然后调整分辨率（修改DPI），再合上盖子或者重新启动，再次连接外接显示器就黑屏没反应，再也没有办法检测到显示器了。</p><h2 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h2><p>神奇的是我重装 macOS 就能恢复，经过一番研究（重装N次，时间机器恢复N次），发现是 macOS 在调整分辨率后会写入显示配置文件，然后系统就会触发这个Bug，显示器就再也识别不了了！</p><a id="more"></a><p>我一直以为是显示器的问题，差点退货！</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>所以很简单，打开 terminal 输入如下代码，删除显示配置文件，重启即可。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  ~/Library/Preferences/ByHost/com.apple.windowserver.displays.*</span><br><span class="line">sudo rm -rf /Library/Preferences/com.apple.windowserver.displays.plist</span><br></pre></td></tr></table></figure><h2 id="完"><a href="#完" class="headerlink" title="完"></a>完</h2>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>microk8s kubelet自动补全</title>
       <link href="/2021/07/17/microk8s%20kubelet%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/"/>
       <url>/2021/07/17/microk8s%20kubelet%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8/</url>
