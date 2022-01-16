@@ -55,14 +55,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="anuoua的">
-<meta property="og:url" content="https://anuoua.github.io/archives/2022/01/index.html">
+  <meta name="description" content="现象每当我通过扩展坞外接显示器，然后调整分辨率（修改DPI），再合上盖子或者重新启动，再次连接外接显示器就黑屏没反应，再也没有办法检测到显示器了。研究神奇的是我重装 macOS 就能恢复，经过一番研究（重装N次，时间机器恢复N次），发现是 macOS 在调整分辨率后会写入显示配置文件，然后系统就会触发这个Bug，显示器就再也识别不了了！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题">
+<meta property="og:url" content="https://anuoua.github.io/2022/01/16/解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题/index.html">
 <meta property="og:site_name" content="anuoua的">
+<meta property="og:description" content="现象每当我通过扩展坞外接显示器，然后调整分辨率（修改DPI），再合上盖子或者重新启动，再次连接外接显示器就黑屏没反应，再也没有办法检测到显示器了。研究神奇的是我重装 macOS 就能恢复，经过一番研究（重装N次，时间机器恢复N次），发现是 macOS 在调整分辨率后会写入显示配置文件，然后系统就会触发这个Bug，显示器就再也识别不了了！">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-01-16T14:53:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="anuoua的">
-  <link rel="canonical" href="https://anuoua.github.io/archives/2022/01/">
+<meta name="twitter:title" content="解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题">
+<meta name="twitter:description" content="现象每当我通过扩展坞外接显示器，然后调整分辨率（修改DPI），再合上盖子或者重新启动，再次连接外接显示器就黑屏没反应，再也没有办法检测到显示器了。研究神奇的是我重装 macOS 就能恢复，经过一番研究（重装N次，时间机器恢复N次），发现是 macOS 在调整分辨率后会写入显示配置文件，然后系统就会触发这个Bug，显示器就再也识别不了了！">
+  <link rel="canonical" href="https://anuoua.github.io/2022/01/16/解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题/">
 
 
 <script id="page-configurations">
@@ -70,13 +74,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | anuoua的</title>
+  <title>解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题 | anuoua的</title>
   
 
 
@@ -251,87 +255,103 @@
         <div class="content-wrap">
             
 
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-    
-    
-  
-  
-
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        
-        
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://anuoua.github.io/2022/01/16/解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="anuoua">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="anuoua的">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
           
-        
-        <span class="collection-header">嗯..! 目前共计 29 篇日志。 继续努力。</span>
-      </div>
-      
+            解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题
+            
 
-      
+          
+        </h1>
 
-  
-  
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-  
+              
+                
+              
+
+              <time title="创建时间：2022-01-16 14:53:11" itemprop="dateCreated datePublished" datetime="2022-01-16T14:53:11+00:00">2022-01-16</time>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-    <div class="collection-year">
-      <h1 class="collection-header">2022</h1>
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>每当我通过扩展坞外接显示器，然后调整分辨率（修改DPI），再合上盖子或者重新启动，再次连接外接显示器就黑屏没反应，再也没有办法检测到显示器了。</p><h2 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h2><p>神奇的是我重装 macOS 就能恢复，经过一番研究（重装N次，时间机器恢复N次），发现是 macOS 在调整分辨率后会写入显示配置文件，然后系统就会触发这个Bug，显示器就再也识别不了了！</p><a id="more"></a>
+
+<p>我一直以为是显示器的问题，差点退货！</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>所以很简单，打开 terminal 输入如下代码，删除显示配置文件，重启即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf  ~/Library/Preferences/ByHost/com.apple.windowserver.displays.*</span><br><span class="line">sudo rm -rf /Library/Preferences/com.apple.windowserver.displays.plist</span><br></pre></td></tr></table></figure>
+
+<h2 id="完"><a href="#完" class="headerlink" title="完"></a>完</h2>
     </div>
-  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-16T14:53:11+00:00"
-              content="2022-01-16">
-          01-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
+    
+    
+    
         
-          <a class="post-title-link" href="/2022/01/16/解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题/" itemprop="url">
-            <span itemprop="name">解决 macbook m1 macOS 外接显示器合上盖子黑屏或者系统没法检测到显示器的问题</span>
-          </a>
-        
-      </h2>
+      
 
-    </header>
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2021/07/17/microk8s kubelet自动补全/" rel="next" title="microk8s kubelet自动补全">
+                  <i class="fa fa-chevron-left"></i> microk8s kubelet自动补全
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -348,6 +368,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -360,6 +385,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现象"><span class="nav-number">1.</span> <span class="nav-text">现象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#研究"><span class="nav-number">2.</span> <span class="nav-text">研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">3.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完"><span class="nav-number">4.</span> <span class="nav-text">完</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
